@@ -1,0 +1,40 @@
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.carrito-producto {
+    display: flex;
+    gap: 3.5rem;
+    align-items: center;
+    background-color: var(--clr-gray);
+    color: var(--clr-main);
+    padding: .5rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.carrito-acciones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.carrito-acciones-vaciar,
+.carrito-acciones-comprar {
+    border: 0;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.carrito-acciones-vaciar {
+    background-color: var(--clr-gray);
+    color: var(--clr-main);
+    border: 2px solid var(--clr-main);
+}
+
+.carrito-acciones-comprar {
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+}
