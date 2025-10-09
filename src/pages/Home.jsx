@@ -1,6 +1,6 @@
-import React from "react"; // tu css
+import React from "react"; 
 import "bootstrap-icons/font/bootstrap-icons.min.css";
-
+import "../styles/pages/Home.css";
 const Home = () => {
   return (
     <div className="wrapper">
