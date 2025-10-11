@@ -1,5 +1,6 @@
-function Login(){
+import React from "react"; 
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+import "../styles/pages/Home.css";
 
-}
 
-export default Login;
+function Login() {}
