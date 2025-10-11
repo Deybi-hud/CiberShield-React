@@ -1,6 +1,4 @@
-// src/components/atoms/Button.jsx
-import "../../styles/button.css";
-
+import React from "react";
 export const Button = ({ text, onClick }) => (
   <button className="button" onClick={onClick}>{text}</button>
 );
