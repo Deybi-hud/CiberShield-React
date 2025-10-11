@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --clr-main: #11212d;       
+    --clr-main-light: #9ba8ab; 
+    --clr-white: #ececec;      
+    --clr-gray: #e2e2e2;       
+    --clr-red: #961818;        
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+
+
+form {
+    width: 300px;
+    height: 370px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 10px 4px 10px 10px var(--clr-white);
+    border-radius: 20px;
+    background-color: transparent;
+
+    
+}
+
+form img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+
+}
+
+form input[type="text"], input[type="password"] {
+    outline: 0;
+    border: 1px solid var(--clr-main-light);
+    width: 80%;
+    padding: 10px;
+}
+
+form label {
+    font-weight: 500;
+    padding: 10px;
+}
+
+.box-visible {
+    top: 0;
+    left: 0;
+    width: 100vw;  
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;  
+}
+
+form button {
+    outline: 0;
+    border: 0;
+    background-color: var(--clr-main);
+    border-radius: 20px;
+    cursor: pointer;
+    width: 250px;
+    padding: 5px;
+    transition: all .3s ease-in-out;
+    text-align: center;
+    color: var(--clr-white);
+    font-weight: 500;
+}
+
+form button:hover{
+    opacity: .75;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, a, input, textarea, ul {
+    margin: 0;
+    padding: 0;
+    
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-main);
+}
+
+aside {
+    padding: 2rem;
+    padding-right: 0;
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
