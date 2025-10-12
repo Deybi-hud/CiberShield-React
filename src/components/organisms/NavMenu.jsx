@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '../atoms/Button';
+import button from '../atoms/button';
+import '../../styles/pages/Home.css';
 const NavMenu = () => {
   return (
     <nav>
