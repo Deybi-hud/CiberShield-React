@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './Header';
+import Header from '../molecules/Header';
 import NavMenu from '../molecules/NavMenu';
-import Footer from './Footer';
+import Footer from '../molecules/Footer';
 
 const Sidebar = () => {
   return (
