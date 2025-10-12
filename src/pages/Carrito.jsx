@@ -2,27 +2,29 @@ import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "../styles/pages/Home.css";
 import Wrapper from "../components/Templates/Wrapper";
-import Sidebar from "../components/organisms/Sidebar";
 import Header from "../components/molecules/Header";
 import NavCarrito from "../components/organisms/NavCarrito";
+import Footer from "../components/molecules/Footer";
 import MainCarrito from "../components/organisms/MainCarrito";
 
 
 function Carrito() {
 
 
+
     return(
-        <Wrapper class="wrapper">
-            <Sidebar>
+        <Wrapper>
+            <SidebarCarrito>
                 <Header>
                 </Header>
                 <NavCarrito>
                 </NavCarrito>
                 <Footer>
                 </Footer>
-            </Sidebar>
+            </SidebarCarrito>
             <MainCarrito>
             </MainCarrito>
+
         </Wrapper>
     )
 }
