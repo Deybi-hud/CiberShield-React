@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <aside>
             <header>
-            <Text className="logo">CiberShield</Text>
+            <Text variant="h1" className="logo">CiberShield</Text>
             <li>
                 <Text className="boton-menu" href="/login">
                 <Button className="boton-iniciar-sesion boton-menu">

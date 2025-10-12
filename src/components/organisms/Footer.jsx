@@ -4,7 +4,7 @@ import Text from "../atoms/Text";
 const Footer = () => {
   return (
     <footer>
-      <Text>© 2023 CiberShield. Todos los derechos reservados.</Text>
+      <Text variant="p" >© 2023 CiberShield. Todos los derechos reservados.</Text>
     </footer>
   );
 };
