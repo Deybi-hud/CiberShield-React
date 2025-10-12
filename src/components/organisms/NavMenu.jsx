@@ -6,19 +6,19 @@ const NavBar = () => {
         <nav>
           <ul className="menu">
             <li>
-              <Button id="todos" className="boton-menu boton-categoria active">
+              <button id="todos" className="boton-menu boton-categoria active">
                 <i className="bi bi-hand-index-thumb-fill"></i> Todo los productos
-              </Button>
+              </button>
             </li>
             <li>
-              <Button id="hardware" className="boton-menu boton-categoria">
+              <button id="hardware" className="boton-menu boton-categoria">
                 <i className="bi bi-hand-index-thumb"></i> Hardware
-              </Button>
+              </button>
             </li>
             <li>
-              <Button id="software" className="boton-menu boton-categoria">
+              <button id="software" className="boton-menu boton-categoria">
                 <i className="bi bi-hand-index-thumb"></i> Software
-              </Button>
+              </button>
             </li>
             <li>
               <a className="boton-menu boton-carrito" href="/carrito">
