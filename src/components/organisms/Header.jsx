@@ -6,9 +6,9 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 const Header = () => {
   return (
     <header>
-      <Text as="h1" className="logo">CiberShield</Text>
+      <Text variant="h1" className="logo">CiberShield</Text>
       <li>
-        <Text variant="a" className="boton-menu" href="./pages/Login.jsx">
+        <Text variant="a" className="boton-menu" href="./pages/login.jsx">
           <Button className="boton-iniciar-sesion boton-menu">
             <i className="bi bi-hand-index-thumb-fill"></i> Iniciar sesión
           </Button>

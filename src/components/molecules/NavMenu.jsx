@@ -20,12 +20,12 @@ const NavMenu = () => {
           </Button>
         </li>
         <li>
-          <a className="boton-menu boton-carrito" href="html/carrito.html">
+          <Text variant="a" className="boton-menu boton-carrito" href="./pages/Carrito.jsx">
             <Button className="boton-menu boton-carrito">
               <i className="bi bi-cart-fill"></i> Carrito
               <span id="numerito" className="numerito">0</span>
             </Button>
-          </a>
+          </Text>
         </li>
       </ul>
     </nav>
