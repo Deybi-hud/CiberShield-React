@@ -1,4 +1,7 @@
+import React from 'react';
 
-export const Wrapper =({children} ) => {
-    return <div className="wrapper">{children}</div>
+const Wrapper = ({ children }) => {
+  return <div className="wrapper">{children}</div>;
 };
+
+export default Wrapper;

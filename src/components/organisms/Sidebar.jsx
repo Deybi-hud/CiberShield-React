@@ -1,15 +1,16 @@
 import React from 'react';
 import Header from './Header';
-import NavMenu from '../organisms/NavMenu';
+import NavMenu from '../molecules/NavMenu';
 import Footer from './Footer';
 
 const Sidebar = () => {
-    return (
-        <asid>
-            <Header />
-            <NavMenu />
-            <Footer />
-        </asid>
-    );
+  return (
+    <aside>
+      <Header />
+      <NavMenu />
+      <Footer />
+    </aside>
+  );
 };
+
 export default Sidebar;
