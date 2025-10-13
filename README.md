@@ -15,6 +15,7 @@
   <li>Catálogo de productos: llaves de seguridad, USB cifrados, accesorios anti-RFID</li>
   <li>Interfaz dinámica construida con <strong>React + Vite</strong></li>
   <li>Componentes reutilizables y arquitectura modular</li>
+   <li>Arquitectura basada en <strong>Atomic Design</strong> para escalabilidad y mantenibilidad</li>
   <li>Implementación y despliegue automatizado en <strong>Vercel</strong></li>
 </ul>
 
