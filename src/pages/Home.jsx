@@ -60,5 +60,5 @@ const Home = () => {
     </Wrapper>
   );
 };
-//hola
+
 export default Home;
