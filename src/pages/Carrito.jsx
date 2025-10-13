@@ -14,7 +14,7 @@ function Carrito() {
                 <nav>
                     <ul>
                         <li>
-                            <a class="boton-menu boton-volver" href="../index.html">
+                            <a class="boton-menu boton-volver" href="./pages/Home.jsx">
                                 <i class="bi bi-arrow-return-left"></i> Seguir comprando
                             </a>
                         </li>
