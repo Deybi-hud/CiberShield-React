@@ -3,12 +3,12 @@
 
 ---
 
-<h2 align="center">🎯 Objetivo</h2>
+<h2 align="center">Objetivo</h2>
 <p align="center"><em>Nuestra misión en CiberShield es acercar la ciberseguridad a personas y pequeñas empresas, ofreciendo productos y servicios accesibles que protejan la privacidad y la información en el mundo digital.</em></p>
 
 ---
 
-<h2 align="center">🚀 Características Principales</h2>
+<h2 align="center">Características Principales</h2>
 
 <ul>
   <li>Tienda en línea de <strong>hardware y software de seguridad</strong></li>
@@ -20,7 +20,7 @@
 
 ---
 
-<h2 align="center">🧠 Tecnologías Usadas</h2>
+<h2 align="center">Tecnologías Usadas</h2>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-20232A?style=flat-badge&logo=react&logoColor=61DAFB"/>
@@ -34,7 +34,7 @@
 
 ---
 
-<h2 align="center">⚙️ Instalación y Ejecución Local</h2>
+<h2 align="center">Instalación y Ejecución Local</h2>
 
 ```bash
 # Clonar el repositorio
