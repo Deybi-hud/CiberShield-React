@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Carrito from './pages/Carrito'; // 🔹 IMPORTANTE: falta este import
+import Carrito from './pages/Carrito'; 
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 function App() {
