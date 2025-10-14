@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
-import { useCarrito } from "./CarritoContext";
 
-const Home = () => {
-  const { productosEnCarrito, agregarAlCarrito } = useCarrito();
+const Home = ({ productosEnCarrito, agregarAlCarrito }) => {
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
   const [categoriaActiva, setCategoriaActiva] = useState("todos");
@@ -13,7 +11,7 @@ const Home = () => {
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        const response = await fetch("/src/data/products.json");
+        const response = await fetch("/public/data/products.json");
         const data = await response.json();
         setProductos(data);
         setProductosFiltrados(data);
