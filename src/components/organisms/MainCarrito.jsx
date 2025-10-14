@@ -2,7 +2,7 @@ import Text from "../atoms/Text";
 import CartItem from "../molecules/CartItem";
 import Button from "../atoms/Button";
 
-const MainCarrito = ({ carritoVacio, productosEnCarrito, eliminarDelCarrito, handleVaciar, handleComprar, total }) => {
+const MainCarrito = ({ carritoVacio, productosEnCarrito = [], eliminarDelCarrito, handleVaciar, handleComprar, total = 0 }) => {
     return (
       <main>
         <Text as="h2" className="titulo-principal">
@@ -19,7 +19,7 @@ const MainCarrito = ({ carritoVacio, productosEnCarrito, eliminarDelCarrito, han
           {!carritoVacio && (
             <>
               <div className="carrito-productos">
-                {productosEnCarrito.map((producto) => (
+                {Array.isArray(productosEnCarrito) && productosEnCarrito.map((producto) => (
                   <CartItem
                     key={producto.id}
                     producto={producto}
@@ -32,7 +32,7 @@ const MainCarrito = ({ carritoVacio, productosEnCarrito, eliminarDelCarrito, han
                     </Button>
                 <div className="carrito-acciones-derecha">
                   <div className="carrito-acciones-total"><Text as="p">Total:</Text>
-                    <Text as="p"> ${total.toLocaleString()}</Text>
+                    <Text as="p"> ${Number(total).toLocaleString()}</Text>
                   </div>
                     <Button
                         className="carrito-acciones-comprar"
