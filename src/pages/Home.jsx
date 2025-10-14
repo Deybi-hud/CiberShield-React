@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
-<<<<<<< HEAD
-import "bootstrap-icons/font/bootstrap-icons.min.css";
-import "../styles/pages/Home.css";
 
 const Home = () => {
-=======
-
-const Home = ({ productosEnCarrito, agregarAlCarrito }) => {
->>>>>>> parent of ab8ba6c (UPDATE SEMI FINAL AHORA SI QUE SI FIX)
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
   const [productosEnCarrito, setProductosEnCarrito] = useState([]);

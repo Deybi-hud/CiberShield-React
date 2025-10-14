@@ -5,7 +5,6 @@ import '../styles/molecules/CartItem.css';
 import Wrapper from '../components/templates/Wrapper';
 import { useCarrito } from './CarritoContext';
 import SidebarCarrito from '../components/organisms/SidebarCarrito';
-import MainCarrito from '../components/organisms/MainCarrito';
 
 function Carrito() {
   const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito } = useCarrito();
@@ -33,7 +32,6 @@ function Carrito() {
   return (
     <Wrapper>
      <SidebarCarrito/>
-     <MainCarrito/>
     </Wrapper>
   );
 }
