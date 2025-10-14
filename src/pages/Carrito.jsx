@@ -9,8 +9,11 @@ import CartItem from '../components/molecules/CartItem';
 import Button from '../components/atoms/Button';
 import Text from '../components/atoms/Text';
 import Link from '../components/atoms/Link';
+import { useCarrito } from './CarritoContext';
 
-function Carrito({ productosEnCarrito, eliminarDelCarrito, vaciarCarrito }) {
+function Carrito() {
+  const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito } = useCarrito();
+
   const calcularTotal = () => {
     return productosEnCarrito.reduce(
       (acc, prod) => acc + prod.precio * prod.cantidad,
