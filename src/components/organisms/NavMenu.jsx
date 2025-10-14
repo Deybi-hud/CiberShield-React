@@ -18,22 +18,19 @@ const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) =
         </li>
         <li>
           <Button id="todos" className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("todos")}>
-            <i className="bi bi-hand-index-thumb-fill"></i> Todos los productos
+            onClick={() => filtrarPorCategoria("todos")}><i className="bi bi-hand-index-thumb-fill"></i> Todos los productos
           </Button>
         </li>
 
         <li>
           <Button id="hardware" className={`boton-menu boton-categoria ${categoriaActiva === "hardware" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("hardware")}>
-          <i className="bi bi-hand-index-thumb"></i> Hardware
+            onClick={() => filtrarPorCategoria("hardware")}><i className="bi bi-hand-index-thumb"></i> Hardware
           </Button>
         </li>
 
         <li>
           <Button id="software" className={`boton-menu boton-categoria ${categoriaActiva === "software" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("software")}>
-            <i className="bi bi-hand-index-thumb"></i> Software
+            onClick={() => filtrarPorCategoria("software")}><i className="bi bi-hand-index-thumb"></i> Software
           </Button>
         </li>
 
