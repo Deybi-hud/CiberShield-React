@@ -20,7 +20,7 @@ const Home = ({ productosEnCarrito, agregarAlCarrito }) => {
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        const response = await fetch("/public/data/products.json");
+        const response = await fetch("/src/data/products.json");
         const data = await response.json();
         setProductos(data);
         setProductosFiltrados(data);
