@@ -1,11 +1,10 @@
-import React from "react";
 import Text from "../atoms/Text";
 import CartItem from "../molecules/CartItem";
 import Button from "../atoms/Button";
 
-
-const MainCarrito = () => {
-    <main>
+const MainCarrito = ({ carritoVacio, productosEnCarrito, eliminarDelCarrito, handleVaciar, handleComprar, total }) => {
+    return (
+      <main>
         <Text as="h2" className="titulo-principal">
           Carrito
         </Text>
@@ -45,6 +44,7 @@ const MainCarrito = () => {
           )}
         </div>
       </main>
+    );
 }; 
 
 export default MainCarrito;
