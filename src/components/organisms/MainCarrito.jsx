@@ -20,33 +20,21 @@ const MainCarrito = () => {
                   <CartItem
                     key={producto.id}
                     producto={producto}
-                    onEliminar={eliminarDelCarrito}
-                  />
+                    onEliminar={eliminarDelCarrito}/>
                 ))}
               </div>
 
               <div className="carrito-acciones">
-                <Button
-                  className="carrito-acciones-vaciar"
-                  onClick={handleVaciar}
-                >
-                  Vaciar Carrito
-                </Button>
+                    <Button className="carrito-acciones-vaciar" onClick={handleVaciar}>Vaciar Carrito
+                    </Button>
                 <div className="carrito-acciones-derecha">
-                  <div className="carrito-acciones-total">
-                    <Text as="p">
-                      Total:
-                    </Text>
-                    <Text as="p">
-                      ${total.toLocaleString()}
-                    </Text>
+                  <div className="carrito-acciones-total"><Text as="p">Total:</Text>
+                    <Text as="p"> ${total.toLocaleString()}</Text>
                   </div>
-                  <Button
-                    className="carrito-acciones-comprar"
-                    onClick={handleComprar}
-                  >
-                    Comprar ahora
-                  </Button>
+                    <Button
+                        className="carrito-acciones-comprar"
+                        onClick={handleComprar}>Comprar ahora
+                    </Button>
                 </div>
               </div>
             </>
