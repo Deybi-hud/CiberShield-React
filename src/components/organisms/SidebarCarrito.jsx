@@ -5,16 +5,13 @@ import NavCarrito from "./NavCarrito";
  
 
 const SidebarCarrito = () => {
-
     return (
         <aside>
             <Header/>
             <NavCarrito/>
             <Footer/>
         </aside>
-
     );
-
 };
 
 export default SidebarCarrito;
