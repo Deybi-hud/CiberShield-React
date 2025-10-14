@@ -6,7 +6,7 @@ const SidebarCarrito = () => {
 
     return (
         <aside>
-            <Header></Header>
+            <Header/>
             <NavCarrito/>
             <Footer/>
         </aside>
