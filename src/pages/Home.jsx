@@ -3,16 +3,15 @@ import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
 
-const Home = () => {
+const Home = ({ productosEnCarrito, agregarAlCarrito }) => {
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
-  const [productosEnCarrito, setProductosEnCarrito] = useState([]);
   const [categoriaActiva, setCategoriaActiva] = useState("todos");
 
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        const response = await fetch("/src/data/products.json");
+        const response = await fetch("/public/data/products.json");
         const data = await response.json();
         setProductos(data);
         setProductosFiltrados(data);
@@ -30,19 +29,6 @@ const Home = () => {
         ? productos
         : productos.filter((p) => p.categoria.id === categoriaId)
     );
-  };
-
-  const agregarAlCarrito = (producto) => {
-    setProductosEnCarrito((prevCarrito) => {
-      const existente = prevCarrito.find((item) => item.id === producto.id);
-      return existente
-        ? prevCarrito.map((item) =>
-            item.id === producto.id
-              ? { ...item, cantidad: item.cantidad + 1 }
-              : item
-          )
-        : [...prevCarrito, { ...producto, cantidad: 1 }];
-    });
   };
 
   return (
