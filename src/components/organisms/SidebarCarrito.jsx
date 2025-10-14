@@ -12,7 +12,6 @@ const SidebarCarrito = () => {
             <NavCarrito/>
             <Footer/>
         </aside>
-
     );
 
 };

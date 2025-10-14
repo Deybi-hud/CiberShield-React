@@ -3,12 +3,6 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import '../styles/pages/Home.css';
 import '../styles/molecules/CartItem.css';
 import Wrapper from '../components/templates/Wrapper';
-import Header from '../components/molecules/Header';
-import Footer from '../components/molecules/Footer';
-import CartItem from '../components/molecules/CartItem';
-import Button from '../components/atoms/Button';
-import Text from '../components/atoms/Text';
-import Link from '../components/atoms/Link';
 import { useCarrito } from './CarritoContext';
 import SidebarCarrito from '../components/organisms/SidebarCarrito';
 import MainCarrito from '../components/organisms/MainCarrito';
@@ -39,7 +33,13 @@ function Carrito() {
   return (
     <Wrapper>
      <SidebarCarrito/>
-     <MainCarrito/>
+     <MainCarrito
+       handleComprar={handleComprar}
+       productosEnCarrito={productosEnCarrito}
+       total={total}
+       eliminarDelCarrito={eliminarDelCarrito}
+       handleVaciar={handleVaciar}
+     />
     </Wrapper>
   );
 }
