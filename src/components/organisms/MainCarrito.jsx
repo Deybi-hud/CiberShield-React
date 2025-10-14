@@ -3,6 +3,7 @@ import Text from "../atoms/Text";
 import CartItem from "../molecules/CartItem";
 import Button from "../atoms/Button";
 
+
 const MainCarrito = () => {
     <main>
         <Text as="h2" className="titulo-principal">
