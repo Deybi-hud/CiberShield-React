@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const MainCarrito = () => {
     <main>
         <Text as="h2" className="titulo-principal">
