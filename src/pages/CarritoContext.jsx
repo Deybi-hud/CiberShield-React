@@ -1,12 +1,19 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 
 const CarritoContext = createContext(null);
 
 export const CarritoProvider = ({ children }) => {
 
-  const [productosEnCarrito, setProductosEnCarrito] = useState([]);
-  const agregarAlCarrito = (producto) => {
+  const [productosEnCarrito, setProductosEnCarrito] = useState(() => {
+    const guardados = localStorage.getItem("productos-en-carrito");
+    return guardados ? JSON.parse(guardados) : [];
+  });
 
+  useEffect(() =>{
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+  }, [productosEnCarrito])
+
+  const agregarAlCarrito = (producto) => {
     setProductosEnCarrito((prevCarrito) => {
       const existente = prevCarrito.find((item) => item.id === producto.id);
       return existente ? prevCarrito.map((item) => item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 }: item) : [...prevCarrito, { ...producto, cantidad: 1 }];

@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
+import { useCarrito } from './CarritoContext';
 
 const Home = () => {
-  
-
   const [productos, setProductos] = useState([]);
   const [productosFiltrados, setProductosFiltrados] = useState([]);
-  const [productosEnCarrito, setProductosEnCarrito] = useState([]);
   const [categoriaActiva, setCategoriaActiva] = useState("todos");
+  const { productosEnCarrito, agregarAlCarrito } = useCarrito();
 
   useEffect(() => {
     const cargarProductos = async () => {
@@ -18,28 +17,12 @@ const Home = () => {
         const data = await response.json();
         setProductos(data);
         setProductosFiltrados(data);
-        
       } catch (error) {
         console.error("Error al cargar productos:", error);
       }
     };
-
     cargarProductos();
-
   }, []);
-
-
-  useEffect(() => {
-    const carritoGuardado = localStorage.getItem("carrito");
-    if (carritoGuardado) {
-      setProductosEnCarrito(JSON.parse(carritoGuardado));
-    }
-  }, []);
-
-  
-  useEffect(() => {
-    localStorage.setItem("carrito", JSON.stringify(productosEnCarrito));
-  }, [productosEnCarrito]);
 
   const filtrarPorCategoria = (categoriaId) => {
     setCategoriaActiva(categoriaId);
@@ -49,19 +32,6 @@ const Home = () => {
       const filtrados = productos.filter((p) => p.categoria.id === categoriaId);
       setProductosFiltrados(filtrados);
     }
-  };
-
-
-  const agregarAlCarrito = (producto) => {
-    setProductosEnCarrito((prevCarrito) => {const existente = prevCarrito.find((item) => item.id === producto.id);
-      if (existente) {
-        return prevCarrito.map((item) =>
-          item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 }: item
-        );
-      } else {
-        return [...prevCarrito, { ...producto, cantidad: 1 }];
-      }
-    });
   };
 
   return (
