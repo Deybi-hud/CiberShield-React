@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
-import { useCarrito } from './CarritoContext';
+import { useCarrito } from '../Context/CarritoContext';
 
 const Home = () => {
   const [productos, setProductos] = useState([]);
