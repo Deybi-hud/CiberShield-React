@@ -32,14 +32,6 @@ function Carrito() {
   return (
     <Wrapper>
      <SidebarCarrito/>
-     <MainCarrito
-       carritoVacio={carritoVacio}
-       productosEnCarrito={productosEnCarrito}
-       eliminarDelCarrito={eliminarDelCarrito}
-       handleVaciar={handleVaciar}
-       handleComprar={handleComprar}
-       total={total}
-     />
     </Wrapper>
   );
 }
