@@ -33,10 +33,10 @@ function Carrito() {
     <Wrapper>
      <SidebarCarrito/>
      <MainCarrito
-     carritoVacio={carritoVacio}
-     productosEnCarrito={productosEnCarrito}
-     eliminarDelCarrito={eliminarDelCarrito}
-     handleComprar={handleComprar}
+      carritoVacio={carritoVacio}
+      productosEnCarrito={productosEnCarrito}
+      eliminarDelCarrito={eliminarDelCarrito}
+      handleComprar={handleComprar}
       handleVaciar={handleVaciar}
       total={total}
      />
