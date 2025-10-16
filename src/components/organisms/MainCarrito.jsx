@@ -1,3 +1,4 @@
+import React from "react";
 import Text from "../atoms/Text";
 import CartItem from "../molecules/CartItem";
 import Button from "../atoms/Button";
