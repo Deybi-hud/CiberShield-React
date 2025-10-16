@@ -1,0 +1,15 @@
+[
+  {
+        "id": 1,
+        "Nombre":"Brandon",
+        "Apellido":"Bravo",
+        "Correo":"bra.bravol@duocuc.cl",
+        "Contraseña":"123456Abcdef"
+    },
+    {
+        "id":2,
+        "Nombre":"Deybi",
+        "Apellido":"Ramírez",
+        "Correo":"dey.ramirez@duocuc.cl"
+    }  
+]

@@ -12,7 +12,7 @@ const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) =
     <nav>
       <ul className="menu">
        <li>
-          <Link to="/Login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
+          <Link to="/login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
         </li>
         <li>
           <Button id="todos" className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`}onClick={() => filtrarPorCategoria("todos")}><i className="bi bi-hand-index-thumb-fill"></i> Todos los productos</Button>
