@@ -16,7 +16,6 @@ const MainCarrito = ({ carritoVacio, productosEnCarrito = [], eliminarDelCarrito
               <div className="carrito-productos">{Array.isArray(productosEnCarrito) && productosEnCarrito.map((producto) => (
                   <CartItem key={producto.id} producto={producto} onEliminar={eliminarDelCarrito}/> ))}
               </div>
-
               <div className="carrito-acciones">
                     <Button className="carrito-acciones-vaciar" onClick={handleVaciar}>Vaciar Carrito</Button>
                 <div className="carrito-acciones-derecha">
