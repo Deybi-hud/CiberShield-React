@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/pages/Login.css';
-import Image from '../components/atoms/Image'; // 🖼️ Asegúrate de tener esta imagen en /src/assets/
+import Image from '../components/atoms/Image'; 
 
 const Login = () => {
   const [correo, setCorreo] = useState('');
@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <img src={'assets/login/user.png'} alt="Usuario" className="user-image" />
+      <Image src="/assets/img/login/user.png" alt="Usuario" className="user-image" />
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleLogin}>
         <input

@@ -19,7 +19,6 @@
         "categoria": {
             "nombre": "hardware",
             "id": "hardware" 
-
         },
         "precio": 10000
     },
