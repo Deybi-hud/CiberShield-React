@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../atoms/Button";
 import Image from "../atoms/Image"; 
+import '../../styles/molecules/ProductCard.css';
 
 const ProductCard = ({ producto, onAddToCart }) => {
   return (

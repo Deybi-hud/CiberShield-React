@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "../molecules/ProductCard";
 import Text from "../atoms/Text";
+import '../../styles/organisms/MainHome.css';
 
 
 const MainHome = ({ productosFiltrados, categoriaActiva, agregarAlCarrito }) => {

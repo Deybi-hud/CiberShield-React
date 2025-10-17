@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../atoms/Button";
 import Link from "../atoms/Link";
-
+import "../../styles/organisms/Nav.css"; 
 const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
   const totalCarrito = productosEnCarrito.reduce(
     (acc, prod) => acc + prod.cantidad,

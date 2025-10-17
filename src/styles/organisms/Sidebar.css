@@ -1,15 +1,21 @@
-.titulo-principal {
-    color: var(--clr-main);
-    margin-bottom: 2rem;
+aside {
+    padding: 2rem;
+    padding-right: 0;
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* --- Media Queries para Home --- */
 @media screen and (max-width: 600px) {
     aside {
         position: fixed;
         z-index: 9;
-        background-color: var(--clr-main);
         left: 0;
+        background-color: var(--clr-main);
         box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
         transform: translateX(-100%);
         opacity: 0;
@@ -21,11 +27,5 @@
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
-    }
-
-    main {
-        margin: 1rem;
-        margin-top: 0;
-        padding: 2rem;
     }
 }

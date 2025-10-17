@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoginCard from '../components/organisms/LoginCard';
 import '../styles/pages/Login.css';
-import HeaderLogin from '../components/molecules/HeaderLogin';
 
 const Login = () => {
   const [email, setEmail] = useState('');

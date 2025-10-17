@@ -1,0 +1,41 @@
+.logo {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+/* --- Estilos para la versión móvil --- */
+.header-mobile {
+    display: none; /* Se activa con media query */
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-mobile .logo {
+    color: var(--clr-gray);
+}
+
+.open-menu, .close-menu {
+    display: none; /* Se activan con media query */
+    background-color: transparent;
+    color: var(--clr-gray);
+    border: 0;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* --- Media Queries --- */
+@media screen and (max-width: 600px) {
+    .header-mobile {
+        display: flex;
+    }
+    .open-menu {
+        display: block;
+    }
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+}

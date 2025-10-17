@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../molecules/Header";
 import Footer from "../molecules/Footer";
 import NavCarrito from "./NavCarrito";
- 
+import "../../styles/organisms/Sidebar.css"; 
 
 const SidebarCarrito = () => {
    return (
