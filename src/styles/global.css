@@ -40,13 +40,6 @@ form img{
 
 }
 
-form input[type="text"], input[type="password"] {
-    outline: 0;
-    border: 1px solid var(--clr-main-light);
-    width: 80%;
-    padding: 10px;
-}
-
 form label {
     font-weight: 500;
     padding: 10px;
@@ -63,19 +56,6 @@ form label {
     background-color: transparent;  
 }
 
-form button {
-    outline: 0;
-    border: 0;
-    background-color: var(--clr-main);
-    border-radius: 20px;
-    cursor: pointer;
-    width: 250px;
-    padding: 5px;
-    transition: all .3s ease-in-out;
-    text-align: center;
-    color: var(--clr-white);
-    font-weight: 500;
-}
 
 form button:hover{
     opacity: .75;

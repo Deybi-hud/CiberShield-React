@@ -4,8 +4,10 @@
     align-items: center;
     background-color: var(--clr-gray);
     color: var(--clr-main);
-    padding: 1rem;
+    padding: .5rem;
+    padding-right: 1.5rem;
     border-radius: 1rem;
+    justify-content: space-between;
 }
 
 .carrito-producto-imagen {

@@ -43,7 +43,7 @@ const LoginForm = ({
         <Button 
           type="submit" 
           disabled={isLoading}
-          className="login-button"
+          className="boton-iniciar-sesion"
         >
           {isLoading ? 'Iniciando sesión...' : 'Ingresar'}
         </Button>
