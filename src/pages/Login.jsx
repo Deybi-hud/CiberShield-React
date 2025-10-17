@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LoginCard from '../components/organisms/LoginCard';
 import '../styles/pages/Login.css';
+import ParticlesBackground from '../components/atoms/ParticlesBackground';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -83,7 +84,7 @@ const Login = () => {
         console.log('Usuario encontrado:', user);
         
         
-        alert(`✅ ¡Bienvenido ${user.nombre} ${user.apellido}! Inicio de sesión exitoso.`);
+        alert(`¡Bienvenido ${user.nombre} ${user.apellido}! Inicio de sesión exitoso.`);
         
       
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -117,6 +118,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <ParticlesBackground />
       <div className="login-container">
         <LoginCard
           email={email}
