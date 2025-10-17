@@ -1,17 +1,8 @@
 import React from 'react';
 
-const Input = ({ 
-  type = 'text',
-  placeholder,
-  value,
-  onChange,
-  error,
-  required = false,
-  className = '',
-  ...props 
-}) => {
+const Input = ({ type = 'text', placeholder, value, onChange, error, required = false, className = '',...props }) => {
   return (
-    <div style={{ width: '100%', marginBottom: '0.5rem' }}>
+    <div className='login-container input login-containger'>
       <input
         type={type}
         placeholder={placeholder}
