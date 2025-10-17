@@ -1,8 +1,9 @@
 import React from 'react';
+import '../../styles/atoms/Input.css';
 
 const Input = ({ type = 'text', placeholder, value, onChange, error, required = false, className = '',...props }) => {
   return (
-    <div className='login-container input login-containger'>
+    <div className='login-container-input'>
       <input
         type={type}
         placeholder={placeholder}
