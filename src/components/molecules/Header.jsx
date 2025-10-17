@@ -5,9 +5,9 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 const Header = () => {
   return (
-    <header>
-      <Text as="h1" className="logo">CiberShield</Text>
-    </header>
+      <header>
+        <Text as="h1" className="logo">CiberShield</Text>
+      </header>
   );
 };
 

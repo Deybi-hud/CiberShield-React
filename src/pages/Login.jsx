@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LoginCard from '../components/organisms/LoginCard';
 import '../styles/pages/Login.css';
-import HeaderLogin from '../components/molecules/HeaderLogin';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -74,7 +74,7 @@ const Login = () => {
         usuariosDisponibles: users
       });
 
-      // ✅ CORREGIDO: Buscar usando "correo" y "contrasena" en lugar de "email" y "password"
+      
       const user = users.find(u => 
         u.correo.toLowerCase().trim() === email.toLowerCase().trim() && 
         u.contrasena === password
@@ -83,17 +83,17 @@ const Login = () => {
       if (user) {
         console.log('Usuario encontrado:', user);
         
-        // Mostrar alerta de éxito con el nombre del usuario
+        
         alert(`✅ ¡Bienvenido ${user.nombre} ${user.apellido}! Inicio de sesión exitoso.`);
         
-        // Guardar en localStorage
+      
         localStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem('isAuthenticated', 'true');
         
-        // Redirigir después de 1.5 segundos
+     
         setTimeout(() => {
           window.location.href = '/';
-        }, 1500);
+        }, 1000);
         
       } else {
         console.log('Usuario NO encontrado');
