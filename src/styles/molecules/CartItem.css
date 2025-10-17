@@ -1,11 +1,12 @@
 .carrito-producto {
     display: flex;
-    gap: 1.5rem; /* Ajustado para consistencia */
+    gap: 3.5rem;
     align-items: center;
     background-color: var(--clr-gray);
     color: var(--clr-main);
-    padding: 1rem;
+    padding: .5rem;
+    padding-right: 1.5rem;
     border-radius: 1rem;
+    justify-content: space-between;
 }
 
-/* ... (el resto de los estilos de CartItem.css) ... */

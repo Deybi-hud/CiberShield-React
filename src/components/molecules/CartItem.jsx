@@ -18,7 +18,6 @@ const CartItem = ({ producto, onEliminar }) => {
       <Image src={producto.imagen} alt={producto.nombre} className="carrito-producto-imagen" />
       <div className="carrito-producto-info">
         <Text as="p" className="carrito-producto-titulo">{producto.nombre}</Text>
-        <Text as="small" className="carrito-producto-descripcion">{producto.descripcion}</Text>
       </div>
       <div className="carrito-producto-cantidad">
         <Text as="p" className="carrito-producto-label">Cantidad </Text>
