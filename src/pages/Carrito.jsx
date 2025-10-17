@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import '../styles/molecules/CartItem.css';
 import Wrapper from "../components/Templates/Wrapper";
-import { useCarrito } from '../Context/CarritoContext';
+import { useCarrito } from '../context/CarritoContext';
 import SidebarCarrito from '../components/organisms/SidebarCarrito';
 import MainCarrito from '../components/organisms/MainCarrito';
 
