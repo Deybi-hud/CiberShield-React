@@ -4,12 +4,14 @@ module.exports = function (config) {
   process.env.CHROME_BIN = require('puppeteer').executablePath();
  config.set({
    frameworks: ['jasmine'],
-   files: [
-     'src/**/*.spec.jsx',
-   ],
-   preprocessors: {
-     'src/**/*.spec.jsx': ['webpack'],
-   },
+    files: [
+     'src/test/setupTests.js',
+     'src/test/**/*.spec.jsx'
+    ],
+    preprocessors: {
+      'src/test/setupTests.js': ['webpack'],
+      'src/test/**/*.spec.jsx': ['webpack']
+    },
    webpack: {
      mode: 'development',
      module: {
