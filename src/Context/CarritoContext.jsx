@@ -14,6 +14,8 @@ export const CarritoProvider = ({ children }) => {
   }, [productosEnCarrito])
 
   const agregarAlCarrito = (producto) => {
+
+    setCompraRealizada(false);
     setProductosEnCarrito((prevCarrito) => {
       const existente = prevCarrito.find((item) => item.id === producto.id);
       return existente ? prevCarrito.map((item) => item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 }: item) : [...prevCarrito, { ...producto, cantidad: 1 }];
@@ -28,9 +30,20 @@ export const CarritoProvider = ({ children }) => {
 
   const vaciarCarrito = () => {
     setProductosEnCarrito([]);
+    localStorage.setItem("productos-en-carrito", JSON.stringify([]));
+    setCompraRealizada(false);
   };
 
-  const value = {productosEnCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito};
+  const comprarCarrito = ()=>{
+      setProductosEnCarrito([]);
+      localStorage.setItem("productos-en-carrito", JSON.stringify([]));
+      setCompraRealizada(true); 
+    
+  }
+
+  const [compraRealizada, setCompraRealizada] = useState(false);
+
+  const value = {productosEnCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito,comprarCarrito,compraRealizada};
 
   return (
     <CarritoContext.Provider value={value}>{children} </CarritoContext.Provider>

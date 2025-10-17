@@ -8,10 +8,17 @@
     --clr-red: #961818;        /* Rojo para errores */
 }
 
+
+header {
+    margin-top: 2rem;
+    justify-content: top left;
+    
+}
+
+
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
     background-color: var(--clr-main);
     height: 100vh;
     display: flex;
