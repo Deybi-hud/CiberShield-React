@@ -6,6 +6,8 @@
     --clr-white: #ececec;      
     --clr-gray: #e2e2e2;       
     --clr-red: #961818;        
+    --clr-danger: #961818; 
+    --clr-danger-dark: #7a1313;
 }
 
 * {

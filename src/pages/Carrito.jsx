@@ -23,12 +23,10 @@ function Carrito() {
     vaciarCarrito();
   };
 
-
   const handleComprar = () => {
      comprarCarrito();
      
   };
-
 
   return (
     <Wrapper>
