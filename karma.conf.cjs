@@ -14,6 +14,9 @@ module.exports = function (config) {
     },
    webpack: {
      mode: 'development',
+     output: {
+       assetModuleFilename: '[name][ext]'
+     },
      module: {
        rules: [
          {
@@ -27,11 +30,19 @@ module.exports = function (config) {
            },
          },
          {
-           test: /\.css$/,
-           use: ['style-loader', 'css-loader'],
+         test: /\.css$/,
+         use: ['style-loader', 'css-loader'],
          },
-       ],
-     },
+           {
+           test: /\.(woff|woff2|eot|ttf|otf)$/,
+           type: 'asset/inline',
+           },
+           {
+           test: /\.(png|jpe?g|gif|svg)$/i,
+           type: 'asset/inline',
+           },
+        ],
+      },
      resolve: {
        extensions: ['.js', '.jsx'],
      },
