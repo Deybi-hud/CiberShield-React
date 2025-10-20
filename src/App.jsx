@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Carrito from './pages/Carrito'; 
 import Login from './pages/Login';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
-import './styles/global.css'
+import './styles/Global.css'
 function App() {
   return (
     <>
