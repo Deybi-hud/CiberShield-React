@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Wrapper from '../../components/Templates/Wrapper';
+import Wrapper from './Wrapper.spec.jsx';
+import '../../../components/templates/Wrapper.jsx';
 
 describe('Wrapper Component', () => {
 
