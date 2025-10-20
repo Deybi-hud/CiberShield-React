@@ -1,4 +1,3 @@
-// src/test/Templates/Wrapper.spec.jsx
 import React from 'react';
 import { render } from '@testing-library/react';
 import Wrapper from '../../components/Templates/Wrapper';
