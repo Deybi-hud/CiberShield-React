@@ -10,6 +10,7 @@ const Home = () => {
   const [productosFiltrados, setProductosFiltrados] = useState([]);
   const [categoriaActiva, setCategoriaActiva] = useState("todos");
   const { productosEnCarrito, agregarAlCarrito } = useCarrito();
+  
 
   useEffect(() => {
     const cargarProductos = async () => {

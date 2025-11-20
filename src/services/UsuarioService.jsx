@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Vite carga la variable del archivo .env
-const BASE_URL = import.meta.env.VITE_API_URL;
+const URL_API = 'https://snake-pc-api.onrender.com/api/v1/';
 
 class UserService {
     async login(usuario) {
