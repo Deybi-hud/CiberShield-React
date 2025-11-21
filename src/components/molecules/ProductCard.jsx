@@ -1,19 +1,26 @@
 import React from "react";
 import Button from "../atoms/Button";
-import Image from "../atoms/Image"; 
+import Image from "../atoms/Image";
+import Link from "../atoms/Link";
 import '../../styles/molecules/ProductCard.css';
 
 const ProductCard = ({ producto, onAddToCart }) => {
   return (
-      <div className="producto">
+    <div className="producto">
+      <Link to={`/producto/${producto.id}`}>
         <Image className="producto-imagen" src={producto.imagen} alt={producto.nombre} />
-        <div className="producto-detalles">
+      </Link>
+
+      <div className="producto-detalles">
+        <Link to={`/producto/${producto.id}`} className="producto-link-titulo">
           <h3 className="producto-titulo">{producto.nombre}</h3>
-          <p className="producto-precio">${producto.precio.toLocaleString()}</p>
-          <p className="producto-descripcion">{producto.descripcion}</p>
-          <Button className="producto-agregar" onClick={() => onAddToCart(producto)}>Agregar</Button>
-        </div>
+        </Link>
+
+        <p className="producto-precio">${producto.precio.toLocaleString()}</p>
+        <p className="producto-descripcion">{producto.descripcion}</p>
+        <Button className="producto-agregar" onClick={() => onAddToCart(producto)}>Agregar</Button>
       </div>
+    </div>
   );
 };
 

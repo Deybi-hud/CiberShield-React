@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Carrito from './pages/Carrito'; 
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ProductDetail from './pages/ProductDetail';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/registro" element={<Register />} />
         <Route path ="/login" element ={<Login />} />
+        <Route path="/producto/:id" element={<ProductDetail />} />
       </Routes>
     </>
   );
