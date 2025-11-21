@@ -16,7 +16,6 @@ const Home = () => {
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        setLoading(true);
         const data = await ProductoService.getAll();
         
         setProductos(data)
@@ -25,8 +24,6 @@ const Home = () => {
       } catch (error) {
         console.error("Error al cargar productos:", error);
         throw error;
-      }finally {
-        setLoading(false);
       }
     };
     cargarProductos();
