@@ -3,6 +3,7 @@ import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
 import { useCarrito } from '../context/CarritoContext';
+import ProductoService from "../services/ProductoService";
 import '../styles/pages/Home.css';
 
 const Home = () => {
@@ -15,12 +16,17 @@ const Home = () => {
   useEffect(() => {
     const cargarProductos = async () => {
       try {
-        const response = await fetch("/data/products.json");
-        const data = await response.json();
-        setProductos(data);
-        setProductosFiltrados(data);
+        setLoading(true);
+        const data = await ProductoService.getAll();
+        
+        setProductos(data)
+        setProductosFiltrados(data)
+
       } catch (error) {
         console.error("Error al cargar productos:", error);
+        throw error;
+      }finally {
+        setLoading(false);
       }
     };
     cargarProductos();

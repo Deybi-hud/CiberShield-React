@@ -2,57 +2,27 @@ import axios from "axios";
 
 const API_URL = 'https://snake-pc-api.onrender.com/api/v1/productos';
 
-class PedidoService {
 
-    async crearPedido(productosCarrito, correoUsuario) {
-        const productosMap = {};
-        productosCarrito.forEach(prod => {
-            productosMap[prod.id] = prod.cantidad;
-        });
+class ProductosService{
 
-        try {
-            const response = await axios.post(
-                `${BASE_URL}/pedidos/crear`,
-                productosMap,
-                { params: { correo: correoUsuario } }
-            );
-            return response.data;
-        } catch (error) {
-            console.error("Error creando pedido:", error);
+    async getAll(){
+        try{
+            const response = await axios.get(`${API_URL}/productos`);
+        }catch(error){
+            console.error("ERROR --> al obtener un producto: ", error);
             throw error;
         }
-    }
+    }  
+    
+    async getById(id){
+        try{
 
-    async getMisPedidos(correoUsuario) {
-        try {
-            const response = await axios.get(`${BASE_URL}/pedidos/mis-pedidos`, {
-                params: { correo: correoUsuario }
-            });
-            return response.data;
-        } catch (error) {
-            console.error("Error obteniendo pedidos:", error);
-            throw error;
-        }
-    }
-
-    async pagarPedido(pedidoId, correoUsuario, metodoPagoId) {
-        try {
-            const response = await axios.post(
-                `${BASE_URL}/pedidos/${pedidoId}/pagar`,
-                null,
-                {
-                    params: {
-                        correo: correoUsuario,
-                        metodoPagoId: metodoPagoId
-                    }
-                }
-            );
-            return response.data;
-        } catch (error) {
-            console.error("Error pagando pedido:", error);
+        } catch(error){
+            console.error("Error --> al obtener un producto", error)
             throw error;
         }
     }
 }
 
-export default new PedidoService();
+
+export default new ProductosService();
