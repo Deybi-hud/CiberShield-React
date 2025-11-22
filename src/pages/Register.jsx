@@ -44,10 +44,10 @@ const Register = () => {
 
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500)); // Simula espera
+            await new Promise(resolve => setTimeout(resolve, 1500));
             console.log('Datos de registro:', formData);
             alert('¡Cuenta creada con éxito!');
-            navigate('/login'); // Redirigir al login
+            navigate('/login'); 
         } catch (error) {
             setErrors({ general: 'Error al registrarse. Intenta nuevamente.' });
         } finally {
