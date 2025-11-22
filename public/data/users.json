@@ -1,16 +1,16 @@
 [
-  {
+    {
         "id": 1,
-        "nombre":"Brandon",
-        "apellido":"Bravo",
-        "correo":"bra.bravol@duocuc.cl",
-        "contrasena":"123456Abcdef"
+        "nombre": "Brandon",
+        "apellido": "Bravo",
+        "correo": "bra.bravol@duocuc.cl",
+        "contrasena": "123456Abcdef"
     },
     {
-        "id":2,
-        "nombre":"Deybi",
-        "apellido":"Ramírez",
-        "correo":"dey.ramirez@duocuc.cl",
-        "contrasena":"123456Abcdef"
-    }  
+        "id": 2,
+        "nombre": "Deybi",
+        "apellido": "Ramírez",
+        "correo": "dey.ramirez@duocuc.cl",
+        "contrasena": "123456Abcdef"
+    }
 ]
