@@ -7,7 +7,7 @@ describe('Wrapper Component', () => {
 
   it('renderiza correctamente', () => {
     const { container } = render(<Wrapper><div>Test Content</div></Wrapper>);
-    
+
     const wrapper = container.querySelector('.wrapper');
     expect(wrapper).toBeTruthy();
   });

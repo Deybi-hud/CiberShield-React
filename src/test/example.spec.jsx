@@ -1,5 +1,5 @@
 describe("Sanity test", () => {
- it("runs a simple truthy test", () => {
-   expect(true).toBe(true);
- });
+  it("runs a simple truthy test", () => {
+    expect(true).toBe(true);
+  });
 });

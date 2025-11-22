@@ -13,7 +13,7 @@ describe('MainHome Component', () => {
   const mockProps = {
     productosFiltrados: mockProductos,
     categoriaActiva: 'todos',
-    agregarAlCarrito: () => {}
+    agregarAlCarrito: () => { }
   };
 
   it('renderiza todos los elementos visuales correctamente', () => {
@@ -45,7 +45,7 @@ describe('MainHome Component', () => {
   it('renderiza la cantidad correcta de productos', () => {
     const { container } = render(<MainHome {...mockProps} />);
     const productos = container.querySelectorAll('.producto');
-    
+
     expect(productos.length).toBe(mockProductos.length);
   });
 });

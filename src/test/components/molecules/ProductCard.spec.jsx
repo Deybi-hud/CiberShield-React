@@ -13,7 +13,7 @@ describe('ProductCard Component', () => {
   };
 
   it('renderiza la información del producto correctamente', () => {
-    render(<ProductCard producto={productoMock} onAddToCart={() => {}} />);
+    render(<ProductCard producto={productoMock} onAddToCart={() => { }} />);
 
     expect(screen.getByText('Llave de Seguridad')).toBeTruthy();
     expect(screen.getByText(/\$50[.,]000/)).toBeTruthy(); // Usamos la expresión regular por si acaso

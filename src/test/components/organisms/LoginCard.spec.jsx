@@ -7,13 +7,13 @@ describe('LoginCard Component', () => {
 
   const mockProps = {
     email: '',
-    setEmail: () => {},
+    setEmail: () => { },
     password: '',
-    setPassword: () => {},
+    setPassword: () => { },
     errors: {},
     isLoading: false,
     onSubmit: (e) => e.preventDefault(),
-    onRegisterClick: () => {},
+    onRegisterClick: () => { },
   };
 
   it('renderiza todos los elementos visuales correctamente', () => {

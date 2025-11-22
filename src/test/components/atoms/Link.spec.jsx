@@ -11,8 +11,8 @@ describe('Link component', () => {
       </MemoryRouter>
     );
     const link = screen.getByText('Ir al Login');
-    expect(link).toBeTruthy();           
-    expect(link).toHaveClass('link-test'); 
-    expect(link.getAttribute('href')).toBe('/login'); 
+    expect(link).toBeTruthy();
+    expect(link).toHaveClass('link-test');
+    expect(link.getAttribute('href')).toBe('/login');
   });
 });

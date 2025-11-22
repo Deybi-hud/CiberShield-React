@@ -92,9 +92,9 @@ describe('Login Page', () => {
 
     const emailInput = screen.getByPlaceholderText(/Correo electrónico/i);
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    
+
     const submitButton = screen.getByRole('button', { name: /Ingresar/i });
-    
+
     await waitFor(() => {
       fireEvent.click(submitButton);
     });
@@ -113,9 +113,9 @@ describe('Login Page', () => {
 
     const emailInput = screen.getByPlaceholderText(/Correo electrónico/i);
     fireEvent.change(emailInput, { target: { value: 'invalidemail' } });
-    
+
     const submitButton = screen.getByRole('button', { name: /Ingresar/i });
-    
+
     await waitFor(() => {
       fireEvent.click(submitButton);
     });
@@ -131,10 +131,10 @@ describe('Login Page', () => {
     await waitFor(() => {
       const emailInput = screen.getByPlaceholderText(/Correo electrónico/i);
       const passwordInput = screen.getByPlaceholderText(/Contraseña/i);
-      
+
       fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
       fireEvent.change(passwordInput, { target: { value: '123' } });
-      
+
       const submitButton = screen.getByText(/Ingresar/i);
       fireEvent.click(submitButton);
     });

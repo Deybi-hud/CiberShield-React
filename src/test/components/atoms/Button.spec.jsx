@@ -3,11 +3,11 @@ import { render, screen } from '@testing-library/react';
 import Button from '../../../components/atoms/Button';
 
 describe('Button Component', () => {
-  
+
   it('renderiza el botón correctamente con su clase base', () => {
     render(<Button>Haz click</Button>);
     const button = screen.getByText('Haz click');
-    expect(button).toBeTruthy(); 
+    expect(button).toBeTruthy();
     expect(button).toHaveClass('boton');
   });
 

@@ -8,7 +8,7 @@ describe('SidebarHome Component', () => {
 
   const mockProps = {
     categoriaActiva: 'todos',
-    filtrarPorCategoria: () => {},
+    filtrarPorCategoria: () => { },
     productosEnCarrito: [
       { id: 1, cantidad: 2 },
       { id: 2, cantidad: 1 }

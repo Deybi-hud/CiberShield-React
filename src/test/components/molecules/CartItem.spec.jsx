@@ -14,7 +14,7 @@ describe('CartItem Component', () => {
   };
 
   it('renderiza la información del producto en el carrito', () => {
-    render(<CartItem producto={productoEnCarrito} onEliminar={() => {}} />);
+    render(<CartItem producto={productoEnCarrito} onEliminar={() => { }} />);
     expect(screen.getByText('ProtonVPN')).toBeTruthy();
     expect(screen.getByText('Cantidad')).toBeTruthy();
     expect(screen.getByText('2')).toBeTruthy();
@@ -29,7 +29,7 @@ describe('CartItem Component', () => {
 
     render(<CartItem producto={productoEnCarrito} onEliminar={onEliminarSpy} />);
 
-    const botonEliminar = screen.getByRole('button'); 
+    const botonEliminar = screen.getByRole('button');
     fireEvent.click(botonEliminar);
 
     expect(onEliminarSpy).toHaveBeenCalledWith(productoEnCarrito.id);

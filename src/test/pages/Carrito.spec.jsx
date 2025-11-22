@@ -7,7 +7,7 @@ import { CarritoProvider, useCarrito } from '../../context/CarritoContext';
 
 const TestCarritoWrapper = () => {
   const { agregarAlCarrito } = useCarrito();
-  
+
   React.useEffect(() => {
     agregarAlCarrito({ id: 1, nombre: 'Producto Test', precio: 100, imagen: { url: 'test.jpg' }, descripcion: 'Descripción test' });
   }, []);

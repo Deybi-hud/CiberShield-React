@@ -14,9 +14,9 @@ describe('MainCarrito Component', () => {
     carritoComprar: false,
     carritoVacio: false,
     productosEnCarrito: mockProductos,
-    eliminarDelCarrito: () => {},
-    handleVaciar: () => {},
-    handleComprar: () => {},
+    eliminarDelCarrito: () => { },
+    handleVaciar: () => { },
+    handleComprar: () => { },
     total: 400
   };
 
@@ -54,7 +54,7 @@ describe('MainCarrito Component', () => {
   it('llama a handleVaciar cuando se hace clic en Vaciar Carrito', () => {
     const handleVaciarSpy = jasmine.createSpy('handleVaciar');
     render(<MainCarrito {...mockProps} handleVaciar={handleVaciarSpy} />);
-    
+
     const vaciarButton = screen.getByText(/Vaciar Carrito/i);
     fireEvent.click(vaciarButton);
 
@@ -64,7 +64,7 @@ describe('MainCarrito Component', () => {
   it('llama a handleComprar cuando se hace clic en Comprar ahora', () => {
     const handleComprarSpy = jasmine.createSpy('handleComprar');
     render(<MainCarrito {...mockProps} handleComprar={handleComprarSpy} />);
-    
+
     const comprarButton = screen.getByText(/Comprar ahora/i);
     fireEvent.click(comprarButton);
 
