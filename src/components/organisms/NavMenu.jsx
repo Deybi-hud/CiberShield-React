@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../atoms/Button";
 import Link from "../atoms/Link";
-import "../../styles/organisms/Nav.css"; 
+import "../../styles/organisms/Nav.css";
 const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
   const totalCarrito = productosEnCarrito.reduce(
     (acc, prod) => acc + prod.cantidad,
@@ -11,11 +11,11 @@ const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) =
   return (
     <nav>
       <ul className="menu">
-       <li>
+        <li>
           <Link to="/login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
         </li>
         <li>
-          <Button id="todos" className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`}onClick={() => filtrarPorCategoria("todos")}><i className="bi bi-hand-index-thumb-fill"></i> Todos los productos</Button>
+          <Button id="todos" className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`} onClick={() => filtrarPorCategoria("todos")}><i className="bi bi-hand-index-thumb-fill"></i> Todos los productos</Button>
         </li>
 
         <li>

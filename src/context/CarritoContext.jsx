@@ -9,7 +9,7 @@ export const CarritoProvider = ({ children }) => {
     return guardados ? JSON.parse(guardados) : [];
   });
 
-  useEffect(() =>{
+  useEffect(() => {
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
   }, [productosEnCarrito])
 
@@ -18,7 +18,7 @@ export const CarritoProvider = ({ children }) => {
     setCompraRealizada(false);
     setProductosEnCarrito((prevCarrito) => {
       const existente = prevCarrito.find((item) => item.id === producto.id);
-      return existente ? prevCarrito.map((item) => item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 }: item) : [...prevCarrito, { ...producto, cantidad: 1 }];
+      return existente ? prevCarrito.map((item) => item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item) : [...prevCarrito, { ...producto, cantidad: 1 }];
     });
   };
 
@@ -34,16 +34,16 @@ export const CarritoProvider = ({ children }) => {
     setCompraRealizada(false);
   };
 
-  const comprarCarrito = ()=>{
-      setProductosEnCarrito([]);
-      localStorage.setItem("productos-en-carrito", JSON.stringify([]));
-      setCompraRealizada(true); 
-    
+  const comprarCarrito = () => {
+    setProductosEnCarrito([]);
+    localStorage.setItem("productos-en-carrito", JSON.stringify([]));
+    setCompraRealizada(true);
+
   }
 
   const [compraRealizada, setCompraRealizada] = useState(false);
 
-  const value = {productosEnCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito,comprarCarrito,compraRealizada};
+  const value = { productosEnCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito, compraRealizada };
 
   return (
     <CarritoContext.Provider value={value}>{children} </CarritoContext.Provider>
@@ -60,4 +60,3 @@ export const useCarrito = () => {
 
 export default CarritoContext;
 
-//

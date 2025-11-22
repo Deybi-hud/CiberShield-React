@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/atoms/Input.css';
 
-const Input = ({ type = 'text', placeholder, value, onChange, error, required = false, className = '',...props }) => {
+const Input = ({ type = 'text', placeholder, value, onChange, error, required = false, className = '', ...props }) => {
   return (
     <div className='login-container-input'>
       <input
@@ -11,7 +11,7 @@ const Input = ({ type = 'text', placeholder, value, onChange, error, required = 
         onChange={onChange}
         className={className}
         required={required}
-        style={{ 
+        style={{
           border: error ? '2px solid var(--clr-red)' : ''
         }}
         {...props}

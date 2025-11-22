@@ -15,11 +15,11 @@ const Login = () => {
       try {
         console.log('Cargando usuarios...');
         const response = await fetch('/data/users.json');
-        
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        
+
         const usersData = await response.json();
         console.log('Usuarios cargados:', usersData);
         setUsers(usersData);
@@ -29,7 +29,7 @@ const Login = () => {
         setErrors({ general: 'Error cargando los usuarios' });
       }
     };
-    
+
     loadUsers();
   }, []);
 
@@ -58,7 +58,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsLoading(true);
@@ -73,34 +73,34 @@ const Login = () => {
         usuariosDisponibles: users
       });
 
-      
-      const user = users.find(u => 
-        u.correo.toLowerCase().trim() === email.toLowerCase().trim() && 
+
+      const user = users.find(u =>
+        u.correo.toLowerCase().trim() === email.toLowerCase().trim() &&
         u.contrasena === password
       );
-      
+
       if (user) {
         console.log('Usuario encontrado:', user);
-        
-        
+
+
         alert(`¡Bienvenido ${user.nombre} ${user.apellido}! Inicio de sesión exitoso.`);
-        
-      
+
+
         localStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem('isAuthenticated', 'true');
-        
-     
+
+
         setTimeout(() => {
           window.location.href = '/';
         }, 1000);
-        
+
       } else {
         console.log('Usuario NO encontrado');
         console.log('Credenciales ingresadas:', { email, password });
         console.log('Usuarios disponibles:', users);
-        
-        setErrors({ 
-          general: 'Credenciales incorrectas. Verifica tu correo y contraseña.' 
+
+        setErrors({
+          general: 'Credenciales incorrectas. Verifica tu correo y contraseña.'
         });
       }
     } catch (error) {

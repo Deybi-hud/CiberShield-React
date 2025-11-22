@@ -14,7 +14,6 @@ const Register = () => {
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
 
-    // Manejar cambios en los inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Carrito from './pages/Carrito'; 
+import Carrito from './pages/Carrito';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/registro" element={<Register />} />
-        <Route path ="/login" element ={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
       </Routes>
     </>

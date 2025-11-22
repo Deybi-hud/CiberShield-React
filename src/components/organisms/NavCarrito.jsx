@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "../atoms/Link";
-import "../../styles/organisms/Nav.css"; 
+import "../../styles/organisms/Nav.css";
 const NavCarrito = () => {
     return (
         <nav>

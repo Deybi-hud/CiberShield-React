@@ -3,7 +3,7 @@ import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 import Image from "../atoms/Image";
 import Link from "../atoms/Link";
-import "../../styles/organisms/MainProductDetail.css"; 
+import "../../styles/organisms/MainProductDetail.css";
 
 const MainProductDetail = ({ producto, agregarAlCarrito }) => {
     if (!producto) return <main><Text>Cargando...</Text></main>;

@@ -13,7 +13,7 @@ const RegisterForm = ({
 }) => {
   return (
     <form onSubmit={onSubmit} style={{ width: '100%' }}>
-      
+
       <Input
         type="text"
         name="nombre"
@@ -44,7 +44,7 @@ const RegisterForm = ({
         required
         className="login-input"
       />
-      
+
       <Input
         type="password"
         name="contrasena"
@@ -61,9 +61,9 @@ const RegisterForm = ({
           {errors.general}
         </Text>
       )}
-      
-      <Button 
-        type="submit" 
+
+      <Button
+        type="submit"
         disabled={isLoading}
         className="boton-iniciar-sesion"
       >

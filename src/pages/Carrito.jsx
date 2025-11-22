@@ -7,7 +7,7 @@ import SidebarCarrito from '../components/organisms/SidebarCarrito';
 import MainCarrito from '../components/organisms/MainCarrito';
 
 function Carrito() {
-  const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito,compraRealizada } = useCarrito();
+  const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito, compraRealizada } = useCarrito();
 
   const calcularTotal = () => {
     return productosEnCarrito.reduce(
@@ -24,22 +24,22 @@ function Carrito() {
   };
 
   const handleComprar = () => {
-     comprarCarrito();
-     
+    comprarCarrito();
+
   };
 
   return (
     <Wrapper>
-     <SidebarCarrito/>
-     <MainCarrito
-      carritoVacio={carritoVacio}
-      carritoComprar={compraRealizada}
-      productosEnCarrito={productosEnCarrito}
-      eliminarDelCarrito={eliminarDelCarrito}
-      handleComprar={handleComprar}
-      handleVaciar={handleVaciar}
-      total={total}
-     />
+      <SidebarCarrito />
+      <MainCarrito
+        carritoVacio={carritoVacio}
+        carritoComprar={compraRealizada}
+        productosEnCarrito={productosEnCarrito}
+        eliminarDelCarrito={eliminarDelCarrito}
+        handleComprar={handleComprar}
+        handleVaciar={handleVaciar}
+        total={total}
+      />
     </Wrapper>
   );
 }

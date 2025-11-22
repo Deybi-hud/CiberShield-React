@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../atoms/Input';
-import '../../styles/molecules/SearchBar.css'; 
+import '../../styles/molecules/SearchBar.css';
 
 const SearchBar = ({ onSearch }) => {
     const handleChange = (e) => {
@@ -16,7 +16,7 @@ const SearchBar = ({ onSearch }) => {
                 type="text"
                 placeholder="Buscar..."
                 onChange={handleChange}
-                className="search-input-atom" 
+                className="search-input-atom"
             />
         </div>
     );
