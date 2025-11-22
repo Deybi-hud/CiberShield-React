@@ -1,0 +1,36 @@
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0 0.5rem;
+
+    margin-top: 1rem;      
+    margin-bottom: 2rem;  
+    margin-right: 1.5rem;  
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+}
+
+
+.search-bar-container:focus-within {
+    border-color: var(--clr-main-light);
+}
+
+.search-icon-box {
+    color: var(--clr-main-light);
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
+
+.search-bar-container .login-container-input {
+    margin: 0;
+    width: 100%;
+}
+
+.search-input-atom {
+    background-color: transparent;
+    border: none;
+    color: var(--clr-white);
+    padding: 0.8rem;
+}

@@ -2,12 +2,17 @@ import React from "react";
 import Header from "../molecules/Header";
 import NavMenu from "./NavMenu";
 import Footer from "../molecules/Footer";
-import "../../styles/organisms/Sidebar.css"; 
+import SearchBar from "../molecules/SearchBar"; // <--- Importar
+import "../../styles/organisms/Sidebar.css";
 
-const SidebarHome = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
+const SidebarHome = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito, onSearch }) => {
   return (
     <aside>
-      <Header />
+      <div>
+        <Header />
+        <SearchBar onSearch={onSearch} />
+      </div>
+
       <NavMenu
         categoriaActiva={categoriaActiva}
         filtrarPorCategoria={filtrarPorCategoria}
