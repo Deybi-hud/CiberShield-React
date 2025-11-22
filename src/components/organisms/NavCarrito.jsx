@@ -1,17 +1,19 @@
 import React from "react";
 import Link from "../atoms/Link";
 import "../../styles/organisms/Nav.css";
+import List from "../atoms/List";
+import ListItem from '../atoms/ListItem'
 const NavCarrito = () => {
     return (
         <nav>
-            <ul className="menu">
-                <li>
+            <List as="ul" className="menu">
+                <ListItem>
                     <Link to="/" className="boton-menu boton-volver"> <i className="bi bi-arrow-return-left"></i>{' '}Seguir comprando</Link>
-                </li>
-                <li>
+                </ListItem>
+                <ListItem>
                     <Link to="/carrito" className="boton-menu boton-carrito active"><i className="bi bi-cart-fill"></i>{' '}Carrito</Link>
-                </li>
-            </ul>
+                </ListItem>
+            </List>
         </nav>
     )
 };
