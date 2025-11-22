@@ -15,7 +15,6 @@ const ProductCard = ({ producto, onAddToCart }) => {
         <Link to={`/producto/${producto.id}`} className="producto-link-titulo">
           <h3 className="producto-titulo">{producto.nombre}</h3>
         </Link>
-
         <p className="producto-precio">${producto.precio.toLocaleString()}</p>
         <p className="producto-descripcion">{producto.descripcion}</p>
         <Button className="producto-agregar" onClick={() => onAddToCart(producto)}>Agregar</Button>

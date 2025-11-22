@@ -10,7 +10,8 @@ const LoginForm = ({
   setPassword,
   errors,
   isLoading,
-  onSubmit
+  onSubmit,
+  
 }) => {
   return (
       <form onSubmit={onSubmit} style={{ width: '100%' }}>
