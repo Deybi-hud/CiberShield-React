@@ -13,10 +13,10 @@ const ProductCard = ({ producto, onAddToCart }) => {
 
       <div className="producto-detalles">
         <Link to={`/producto/${producto.id}`} className="producto-link-titulo">
-          <h3 className="producto-titulo">{producto.nombre}</h3>
+          <Text as="h3" className="producto-titulo">{producto.nombre}</Text>
         </Link>
-        <p className="producto-precio">${producto.precio.toLocaleString()}</p>
-        <p className="producto-descripcion">{producto.descripcion}</p>
+        <Text as="p" className="producto-precio">${producto.precio.toLocaleString()}</Text>
+        <Text as="p" className="producto-descripcion">{producto.descripcion}</Text>
         <Button className="producto-agregar" onClick={() => onAddToCart(producto)}>Agregar</Button>
       </div>
     </div>
