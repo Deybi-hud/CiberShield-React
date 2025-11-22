@@ -14,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
             </div>
             <Input
                 type="text"
-                placeholder="Buscar..."
+                placeholder="Buscar productos..."
                 onChange={handleChange}
                 className="search-input-atom"
             />
