@@ -4,7 +4,7 @@ import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainProductDetail from "../components/organisms/MainProductDetail";
 import { useCarrito } from "../context/CarritoContext";
-import ProductoService from "../services/ProductoService";
+import ProductoService from "../services/publico/ProductoService";
 
 const ProductDetail = () => {
   const { id } = useParams();
