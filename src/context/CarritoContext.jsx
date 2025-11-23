@@ -9,6 +9,8 @@ export const CarritoProvider = ({ children }) => {
     return guardados ? JSON.parse(guardados) : [];
   });
 
+  const [compraRealizada, setCompraRealizada] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
   }, [productosEnCarrito])
@@ -40,8 +42,6 @@ export const CarritoProvider = ({ children }) => {
     setCompraRealizada(true);
 
   }
-
-  const [compraRealizada, setCompraRealizada] = useState(false);
 
   const value = { productosEnCarrito, agregarAlCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito, compraRealizada };
 

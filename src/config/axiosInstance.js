@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_BASE_URL from './api';
+import { default as API_BASE_URL } from './api';
 
 // Crear instancia de axios
 const axiosInstance = axios.create({
