@@ -5,8 +5,9 @@ import "../../styles/organisms/Nav.css";
 import List from "../atoms/List";
 import ListItem from '../atoms/ListItem'
 const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
-  const totalCarrito = productosEnCarrito.reduce(
-    (acc, prod) => acc + prod.cantidad,
+  const carritoSeguro = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
+  const totalCarrito = carritoSeguro.reduce(
+    (acc, prod) => acc + (prod?.cantidad || 0),
     0
   );
 

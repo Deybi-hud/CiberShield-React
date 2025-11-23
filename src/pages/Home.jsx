@@ -47,14 +47,23 @@ const Home = () => {
   useEffect(() => {
     let resultado = productos;
 
-
     if (categoriaActiva !== "todos") {
-      resultado = resultado.filter((p) => p.categoria.id === categoriaActiva);
+      resultado = resultado.filter((p) => {
+        // Verificar si categoria existe y tiene id
+        if (p.categoria && p.categoria.id) {
+          return p.categoria.id === categoriaActiva;
+        }
+        // También soportar categoria como string
+        if (typeof p.categoria === 'string') {
+          return p.categoria === categoriaActiva;
+        }
+        return false;
+      });
     }
 
     if (busqueda.trim() !== "") {
       resultado = resultado.filter((p) =>
-        p.nombre.toLowerCase().includes(busqueda.toLowerCase())
+        p.nombre && p.nombre.toLowerCase().includes(busqueda.toLowerCase())
       );
     }
 
