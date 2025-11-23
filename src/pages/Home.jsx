@@ -12,8 +12,17 @@ const Home = () => {
 
   const [categoriaActiva, setCategoriaActiva] = useState("todos");
   const [busqueda, setBusqueda] = useState("");
+  const [, setAuthCheck] = useState(0);
 
   const { agregarAlCarrito, productosEnCarrito } = useCarrito();
+
+  // Monitorear cambios de autenticación
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAuthCheck(prev => prev + 1);
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
 
   useEffect(() => {
