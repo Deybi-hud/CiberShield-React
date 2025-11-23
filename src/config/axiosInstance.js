@@ -10,6 +10,9 @@ const axiosInstance = axios.create({
   timeout: 10000, // 10 segundos
 });
 
+// Flag para evitar múltiples redirecciones simultáneas
+let isRedirecting = false;
+
 // Interceptor de solicitud
 axiosInstance.interceptors.request.use(
   (config) => {
@@ -31,12 +34,25 @@ axiosInstance.interceptors.response.use(
   (error) => {
     console.error('Error en la solicitud:', error.message);
     
-    // Si recibimos 401, el token no es válido
+    // Si recibimos 401, el token no es válido (solo en rutas protegidas)
     if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('usuario');
-      // Redirigir a login si es necesario
-      window.location.href = '/login';
+      // Verificar si el endpoint requería autenticación
+      const requiresAuth = error.config?.headers?.Authorization;
+      
+      if (requiresAuth && !isRedirecting && window.location.pathname !== '/login') {
+        isRedirecting = true;
+        localStorage.removeItem('token');
+        localStorage.removeItem('usuario');
+        
+        // Evitar redirecciones infinitas
+        setTimeout(() => {
+          window.location.href = '/login';
+          isRedirecting = false;
+        }, 500);
+      } else if (!requiresAuth) {
+        // Para rutas públicas que devuelven 401, no redirigir
+        console.warn('API retornó 401 en una solicitud pública');
+      }
     }
     
     // Log de errores de red

@@ -14,7 +14,12 @@ class ProductosService {
       });
       return response.data;
     } catch (error) {
-      console.error('Error al obtener productos:', error);
+      console.error('Error al obtener productos:', error.message);
+      // Retornar array vacío en lugar de lanzar error para evitar loops
+      if (error.response?.status === 401) {
+        console.warn('API retornó 401 para ruta pública de productos. Retornando array vacío.');
+        return [];
+      }
       throw error;
     }
   }
