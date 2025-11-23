@@ -7,10 +7,10 @@ import '../styles/pages/Login.css'; // Reutilizamos el layout centrado del Login
 const Register = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        nombre: '',
-        apellido: '',
+        nombreUsuario: '',
         correo: '',
-        contrasena: ''
+        contrasena: '',
+        confirmarContrasena: ''
     });
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false);
@@ -28,10 +28,12 @@ const Register = () => {
 
     const validateForm = () => {
         const newErrors = {};
-        if (!formData.nombre.trim()) newErrors.nombre = 'El nombre es requerido';
-        if (!formData.apellido.trim()) newErrors.apellido = 'El apellido es requerido';
+        if (!formData.nombreUsuario.trim()) newErrors.nombreUsuario = 'El nombre de usuario es requerido';
         if (!formData.correo.trim()) newErrors.correo = 'El correo es requerido';
         if (formData.contrasena.length < 6) newErrors.contrasena = 'Mínimo 6 caracteres';
+        if (formData.contrasena !== formData.confirmarContrasena) {
+            newErrors.confirmarContrasena = 'Las contraseñas no coinciden';
+        }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -42,19 +44,21 @@ const Register = () => {
         if (!validateForm()) return;
 
         setIsLoading(true);
+        setErrors({});
 
         try {
             const datosRegistro = {
-                nombreUsuario: `${formData.nombre} ${formData.apellido}`,
+                nombreUsuario: formData.nombreUsuario,
                 correo: formData.correo,
                 contrasena: formData.contrasena
             };
             
-            await AuthService.registrar(datosRegistro);
+            await AuthService.registrar(datosRegistro, formData.confirmarContrasena);
             alert('¡Cuenta creada con éxito!');
             navigate('/login'); 
         } catch (error) {
-            setErrors({ general: error.response?.data?.error || 'Error al registrarse. Intenta nuevamente.' });
+            const msg = error.response?.data?.error || 'Error al registrarse. Intenta nuevamente.';
+            setErrors({ general: msg });
             console.error('Error en registro:', error);
         } finally {
             setIsLoading(false);

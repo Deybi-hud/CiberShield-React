@@ -4,33 +4,32 @@ import Button from '../atoms/Button';
 import Text from '../atoms/Text';
 
 const LoginForm = ({
-  email,
-  setEmail,
-  password,
-  setPassword,
+  form,
+  handleChange,
   errors,
-  isLoading,
+  loading,
   onSubmit,
-
 }) => {
   return (
     <form onSubmit={onSubmit} style={{ width: '100%' }}>
       <Input
         type="email"
+        name="correo"
         placeholder="Correo electrónico"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        error={errors.email}
+        value={form.correo}
+        onChange={handleChange}
+        error={errors.correo}
         required
         className="login-input"
       />
 
       <Input
         type="password"
+        name="contrasena"
         placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        error={errors.password}
+        value={form.contrasena}
+        onChange={handleChange}
+        error={errors.contrasena}
         required
         className="login-input"
       />
@@ -43,10 +42,10 @@ const LoginForm = ({
 
       <Button
         type="submit"
-        disabled={isLoading}
+        disabled={loading}
         className="boton-iniciar-sesion"
       >
-        {isLoading ? 'Iniciando sesión...' : 'Ingresar'}
+        {loading ? 'Iniciando sesión...' : 'Ingresar'}
       </Button>
     </form>
   );
