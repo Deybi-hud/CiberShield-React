@@ -1,4 +1,4 @@
-.login-form { /* Usaremos esta clase en el tag <form> */
+.login-form { 
     width: 100%;
     display: flex;
     flex-direction: column;
