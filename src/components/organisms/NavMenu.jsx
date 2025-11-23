@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../atoms/Button";
 import Link from "../atoms/Link";
 import "../../styles/organisms/Nav.css";
 import List from "../atoms/List";
 import ListItem from '../atoms/ListItem'
 const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
+  const [isAutenticado, setIsAutenticado] = useState(false);
+
+  useEffect(() => {
+    // Verificar si hay token en localStorage al montar
+    const token = localStorage.getItem('token');
+    setIsAutenticado(!!token);
+
+    // Crear un intervalo para verificar cambios en el token
+    const interval = setInterval(() => {
+      const token = localStorage.getItem('token');
+      setIsAutenticado(!!token);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const carritoSeguro = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
   const totalCarrito = carritoSeguro.reduce(
     (acc, prod) => acc + (prod?.cantidad || 0),
@@ -15,7 +31,11 @@ const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) =
     <nav>
       <List as="ul" className="menu">
         <ListItem>
-          <Link to="/login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
+          {isAutenticado ? (
+            <Link to="/perfil" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Perfil{" "}</Link>
+          ) : (
+            <Link to="/login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
+          )}
         </ListItem>
 
         <ListItem>
