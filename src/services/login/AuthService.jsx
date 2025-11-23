@@ -10,20 +10,32 @@ class AuthService {
     */
   async login(email, password) {
     try {
-      const response = await axiosInstance.post(API_ENDPOINTS.AUTH.LOGIN, {
+      const payload = {
         correo: email,
         contrasena: password,
-      });
+      };
+      console.log('Intentando login con payload:', JSON.stringify(payload));
+      console.log('Endpoint:', API_ENDPOINTS.AUTH.LOGIN);
+      const response = await axiosInstance.post(API_ENDPOINTS.AUTH.LOGIN, payload);
+
+      console.log('Respuesta del servidor:', response);
+      console.log('response.data:', response.data);
 
       // Guardar token y datos de usuario en localStorage
       if (response.data.token) {
+        console.log('Token encontrado, guardando...');
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('usuario', JSON.stringify(response.data.usuario));
+        console.log('Credenciales guardadas');
+      } else {
+        console.warn('No se encontró token en la respuesta');
       }
 
       return response.data;
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
+      console.error('Error response:', error.response?.data);
+      console.error('Error status:', error.response?.status);
       throw error;
     }
   }

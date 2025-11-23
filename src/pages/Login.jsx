@@ -37,14 +37,25 @@ const Login = () => {
     setErrors({});
 
     try {
+      console.log('Iniciando proceso de login...');
       const response = await AuthService.login(email, password);
+      console.log('Login exitoso, respuesta:', response);
       
-      alert('¡Inicio de sesión exitoso!');
-      navigate('/');
+      // Pequeña pausa antes de redirigir para permitir ver logs
+      setTimeout(() => {
+        alert('¡Inicio de sesión exitoso!');
+        navigate('/');
+      }, 500);
     } catch (error) {
       console.error('Error en login:', error);
+      console.error('Detalles del error:', {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data,
+        statusText: error.response?.statusText
+      });
       setErrors({ 
-        general: error.response?.data?.error || 'Credenciales incorrectas. Verifica tu correo y contraseña.' 
+        general: error.response?.data?.error || error.response?.data?.message || 'Credenciales incorrectas. Verifica tu correo y contraseña.' 
       });
     } finally {
       setIsLoading(false);
