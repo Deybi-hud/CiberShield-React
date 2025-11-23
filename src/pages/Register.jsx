@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterCard from '../components/organisms/RegisterCard';
+import AuthService from '../services/login/AuthService';
 import '../styles/pages/Login.css'; // Reutilizamos el layout centrado del Login
 
 const Register = () => {
@@ -42,14 +43,19 @@ const Register = () => {
 
         setIsLoading(true);
 
-
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            console.log('Datos de registro:', formData);
+            const datosRegistro = {
+                nombreUsuario: `${formData.nombre} ${formData.apellido}`,
+                correo: formData.correo,
+                contrasena: formData.contrasena
+            };
+            
+            await AuthService.registrar(datosRegistro);
             alert('¡Cuenta creada con éxito!');
             navigate('/login'); 
         } catch (error) {
-            setErrors({ general: 'Error al registrarse. Intenta nuevamente.' });
+            setErrors({ general: error.response?.data?.error || 'Error al registrarse. Intenta nuevamente.' });
+            console.error('Error en registro:', error);
         } finally {
             setIsLoading(false);
         }

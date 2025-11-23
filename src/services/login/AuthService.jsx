@@ -3,16 +3,16 @@ import { API_ENDPOINTS } from '../../config/api';
 
 class AuthService {
   /**
-   * Iniciar sesión
-   * @param {string} email - Email del usuario
-   * @param {string} password - Contraseña del usuario
-   * @returns {Promise} Respuesta del servidor con token y datos de usuario
-   */
+    * Iniciar sesión
+    * @param {string} email - Email del usuario
+    * @param {string} password - Contraseña del usuario
+    * @returns {Promise} Respuesta del servidor con token y datos de usuario
+    */
   async login(email, password) {
     try {
       const response = await axiosInstance.post(API_ENDPOINTS.AUTH.LOGIN, {
-        email,
-        password,
+        correo: email,
+        contrasena: password,
       });
 
       // Guardar token y datos de usuario en localStorage
@@ -29,13 +29,29 @@ class AuthService {
   }
 
   /**
-   * Registrar nuevo usuario
-   * @param {Object} datos - Datos del usuario (nombre, email, password, etc.)
-   * @returns {Promise} Respuesta del servidor
-   */
+    * Registrar nuevo usuario
+    * @param {Object} datos - Datos del usuario (nombreUsuario, correo, contrasena)
+    * @returns {Promise} Respuesta del servidor
+    */
   async registrar(datos) {
     try {
-      const response = await axiosInstance.post(API_ENDPOINTS.AUTH.REGISTER, datos);
+      // Construir el usuario en el formato esperado por el backend
+      const usuarioData = {
+        nombreUsuario: datos.nombreUsuario,
+        correo: datos.correo,
+        contrasena: datos.contrasena
+      };
+
+      // El parámetro confirmarContrasena se pasa como query parameter
+      const response = await axiosInstance.post(
+        API_ENDPOINTS.AUTH.REGISTER,
+        usuarioData,
+        {
+          params: {
+            confirmarContrasena: datos.contrasena
+          }
+        }
+      );
 
       // Guardar token si viene en la respuesta
       if (response.data.token) {

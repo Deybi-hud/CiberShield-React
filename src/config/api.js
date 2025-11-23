@@ -5,7 +5,7 @@ export const API_ENDPOINTS = {
   // Autenticación
   AUTH: {
     LOGIN: '/auth/login',
-    REGISTER: '/auth/registro',
+    REGISTER: '/auth/registrar',
     LOGOUT: '/auth/logout',
     REFRESH: '/auth/refresh',
   },
@@ -14,9 +14,9 @@ export const API_ENDPOINTS = {
   PRODUCTOS: {
     GET_ALL: '/productos',
     GET_BY_ID: '/productos/:id',
-    CREATE: '/productos',
-    UPDATE: '/productos/:id',
-    DELETE: '/productos/:id',
+    CREATE: '/admin/productos',
+    UPDATE: '/admin/productos/:id',
+    DELETE: '/admin/productos/:id',
   },
   
   // Ubicaciones

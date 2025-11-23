@@ -1,37 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginCard from '../components/organisms/LoginCard';
+import AuthService from '../services/login/AuthService';
 import '../styles/pages/Login.css';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [isUsersLoaded, setIsUsersLoaded] = useState(false);
-
-  useEffect(() => {
-    const loadUsers = async () => {
-      try {
-        console.log('Cargando usuarios...');
-        const response = await fetch('/data/users.json');
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const usersData = await response.json();
-        console.log('Usuarios cargados:', usersData);
-        setUsers(usersData);
-        setIsUsersLoaded(true);
-      } catch (error) {
-        console.error('Error cargando usuarios:', error);
-        setErrors({ general: 'Error cargando los usuarios' });
-      }
-    };
-
-    loadUsers();
-  }, []);
 
   const validateForm = () => {
     const newErrors = {};
@@ -44,12 +22,6 @@ const Login = () => {
 
     if (!password) {
       newErrors.password = 'La contraseña es requerida';
-    } else if (password.length < 4) {
-      newErrors.password = 'La contraseña debe tener al menos 4 caracteres';
-    }
-
-    if (!isUsersLoaded) {
-      newErrors.general = 'Cargando usuarios, por favor espera...';
     }
 
     setErrors(newErrors);
@@ -65,54 +37,22 @@ const Login = () => {
     setErrors({});
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      console.log('Buscando usuario:', {
-        emailBuscado: email,
-        passwordBuscado: password,
-        usuariosDisponibles: users
-      });
-
-
-      const user = users.find(u =>
-        u.correo.toLowerCase().trim() === email.toLowerCase().trim() &&
-        u.contrasena === password
-      );
-
-      if (user) {
-        console.log('Usuario encontrado:', user);
-
-
-        alert(`¡Bienvenido ${user.nombre} ${user.apellido}! Inicio de sesión exitoso.`);
-
-
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        localStorage.setItem('isAuthenticated', 'true');
-
-
-        setTimeout(() => {
-          window.location.href = '/';
-        }, 1000);
-
-      } else {
-        console.log('Usuario NO encontrado');
-        console.log('Credenciales ingresadas:', { email, password });
-        console.log('Usuarios disponibles:', users);
-
-        setErrors({
-          general: 'Credenciales incorrectas. Verifica tu correo y contraseña.'
-        });
-      }
+      const response = await AuthService.login(email, password);
+      
+      alert('¡Inicio de sesión exitoso!');
+      navigate('/');
     } catch (error) {
       console.error('Error en login:', error);
-      setErrors({ general: 'Error al iniciar sesión. Intenta nuevamente.' });
+      setErrors({ 
+        general: error.response?.data?.error || 'Credenciales incorrectas. Verifica tu correo y contraseña.' 
+      });
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleRegisterClick = () => {
-    alert('Funcionalidad de registro en desarrollo');
+    navigate('/registro');
   };
 
   return (
@@ -124,7 +64,7 @@ const Login = () => {
           password={password}
           setPassword={setPassword}
           errors={errors}
-          isLoading={isLoading || !isUsersLoaded}
+          isLoading={isLoading}
           onSubmit={handleSubmit}
           onRegisterClick={handleRegisterClick}
         />
