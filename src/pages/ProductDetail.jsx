@@ -33,6 +33,7 @@ const ProductDetail = () => {
         categoriaActiva="detalle"
         filtrarPorCategoria={() => { }}
         productosEnCarrito={productosEnCarrito}
+        onSearch={() => { }}
       />
       <MainProductDetail
         producto={producto}
