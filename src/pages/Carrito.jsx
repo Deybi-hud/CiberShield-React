@@ -9,15 +9,21 @@ import MainCarrito from '../components/organisms/MainCarrito';
 function Carrito() {
   const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito, compraRealizada } = useCarrito();
 
+  const productosSeguros = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
+
   const calcularTotal = () => {
-    return productosEnCarrito.reduce(
-      (acc, prod) => acc + prod.precio * prod.cantidad,
+    return productosSeguros.reduce(
+      (acc, prod) => {
+        const precio = prod?.precio || 0;
+        const cantidad = prod?.cantidad || 0;
+        return acc + (typeof precio === 'number' ? precio * cantidad : 0);
+      },
       0
     );
   };
 
   const total = calcularTotal();
-  const carritoVacio = productosEnCarrito.length === 0;
+  const carritoVacio = productosSeguros.length === 0;
 
   const handleVaciar = () => {
     vaciarCarrito();
@@ -34,7 +40,7 @@ function Carrito() {
       <MainCarrito
         carritoVacio={carritoVacio}
         carritoComprar={compraRealizada}
-        productosEnCarrito={productosEnCarrito}
+        productosEnCarrito={productosSeguros}
         eliminarDelCarrito={eliminarDelCarrito}
         handleComprar={handleComprar}
         handleVaciar={handleVaciar}

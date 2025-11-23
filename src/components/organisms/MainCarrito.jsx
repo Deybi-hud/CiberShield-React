@@ -5,6 +5,9 @@ import Button from "../atoms/Button";
 import '../../styles/organisms/MainCarrito.css';
 
 const MainCarrito = ({ carritoComprar, carritoVacio, productosEnCarrito = [], eliminarDelCarrito, handleVaciar, handleComprar, total = 0 }) => {
+  const productosSeguro = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
+  const totalSeguro = typeof total === 'number' ? total : 0;
+
   return (
     <main>
       <Text as="h2" className="titulo-principal">Carrito</Text>
@@ -22,8 +25,8 @@ const MainCarrito = ({ carritoComprar, carritoVacio, productosEnCarrito = [], el
         {!carritoVacio && (
           <>
             <div className="carrito-productos">
-              {Array.isArray(productosEnCarrito) && productosEnCarrito.map((producto) => (
-                <CartItem key={producto.id} producto={producto} onEliminar={eliminarDelCarrito} />
+              {productosSeguro.map((producto) => (
+                <CartItem key={producto?.id || Math.random()} producto={producto} onEliminar={eliminarDelCarrito} />
               ))}
             </div>
             <div className="carrito-acciones">
@@ -33,7 +36,7 @@ const MainCarrito = ({ carritoComprar, carritoVacio, productosEnCarrito = [], el
               <div className="carrito-acciones-derecha">
                 <div className="carrito-acciones-total">
                   <Text as="p">Total:</Text>
-                  <Text as="p"> ${Number(total).toLocaleString()}</Text>
+                  <Text as="p"> ${totalSeguro.toLocaleString()}</Text>
                 </div>
                 <Button className="carrito-acciones-comprar" onClick={handleComprar}>
                   Comprar ahora
