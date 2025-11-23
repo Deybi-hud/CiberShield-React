@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axiosInstance from '../../config/axiosInstance';
 import { API_ENDPOINTS } from '../../config/api';
 
@@ -58,3 +59,8 @@ class PerfilService {
 }
 
 export default new PerfilService();
+=======
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/"
+>>>>>>> parent of a176138 (Update)

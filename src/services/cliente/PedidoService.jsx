@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axiosInstance from '../../config/axiosInstance';
 import { API_ENDPOINTS } from '../../config/api';
 
@@ -96,3 +97,8 @@ class PedidoService {
 }
 
 export default new PedidoService();
+=======
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/cliente/pedidos"
+>>>>>>> parent of a176138 (Update)

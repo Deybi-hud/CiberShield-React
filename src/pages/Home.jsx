@@ -23,10 +23,18 @@ const Home = () => {
         const data = await ProductoService.getAll();
         console.log('Productos cargados:', data);
         
-        // ProductoService.getAll() siempre retorna un array
-        const productosArray = Array.isArray(data) ? data : [];
-        setProductos(productosArray);
-        setProductosFiltrados(productosArray);
+        if (Array.isArray(data)) {
+          setProductos(data);
+          setProductosFiltrados(data);
+        } else if (data && typeof data === 'object') {
+          const productosArray = Array.isArray(data.data) ? data.data : [];
+          setProductos(productosArray);
+          setProductosFiltrados(productosArray);
+        } else {
+          console.warn('Formato de datos inesperado:', data);
+          setProductos([]);
+          setProductosFiltrados([]);
+        }
       } catch (error) {
         console.error("Error al cargar productos:", error);
         setProductos([]);

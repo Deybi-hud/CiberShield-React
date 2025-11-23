@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axiosInstance from '../../config/axiosInstance';
 import { API_ENDPOINTS } from '../../config/api';
 
@@ -95,3 +96,8 @@ class AdminRolService {
 }
 
 export default new AdminRolService();
+=======
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/roles"
+>>>>>>> parent of a176138 (Update)

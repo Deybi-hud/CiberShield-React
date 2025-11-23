@@ -1,6 +1,7 @@
 import axiosInstance from '../../config/axiosInstance';
 import { API_ENDPOINTS } from '../../config/api';
 
+<<<<<<< HEAD
 class AuthService {
   /**
    * Iniciar sesión
@@ -115,3 +116,6 @@ class AuthService {
 }
 
 export default new AuthService();
+=======
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/auth"
+>>>>>>> parent of a176138 (Update)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import axiosInstance from '../../config/axiosInstance';
 import { API_ENDPOINTS } from '../../config/api';
 
@@ -52,3 +53,8 @@ class PagoService {
 }
 
 export default new PagoService();
+=======
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/cliente/pagos"
+>>>>>>> parent of a176138 (Update)

@@ -16,13 +16,11 @@ const ProductDetail = () => {
     const fetchProducto = async () => {
       try {
         const todos = await ProductoService.getAll();
-        // ProductoService.getAll() siempre retorna un array
-        const productosArray = Array.isArray(todos) ? todos : [];
-        const encontrado = productosArray.find(p => p.id.toString() === id);
-        setProducto(encontrado || null);
+        const encontrado = todos.find(p => p.id.toString() === id);
+        setProducto(encontrado);
+
       } catch (error) {
         console.error("Error cargando producto", error);
-        setProducto(null);
       }
     };
 
