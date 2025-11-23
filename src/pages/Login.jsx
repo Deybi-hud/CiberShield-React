@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../services/login/useAuth';
 import LoginCard from '../components/organisms/LoginCard';
 import AuthService from '../services/login/AuthService';
 import '../styles/pages/Login.css';
@@ -9,6 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,8 +18,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log('Form actual:', form);
     
     if (!form.correo || !form.contrasena) {
       setErrors({ general: 'Completa todos los campos' });
@@ -28,18 +28,20 @@ const Login = () => {
     setErrors({});
 
     try {
-      console.log('Enviando login con:', form);
       const response = await AuthService.login(form);
-      console.log('Respuesta:', response.data);
       const usuario = response.data.usuario;
+      const token = response.data.token;
 
-      // Guardar usuario en localStorage
-      localStorage.setItem('user', JSON.stringify({
-        id: usuario.id,
-        nombreUsuario: usuario.nombreUsuario,
-        correo: usuario.correo,
-        rol: usuario.rol,
-      }));
+      // Usar el contexto para guardar datos
+      login(
+        {
+          id: usuario.id,
+          nombreUsuario: usuario.nombreUsuario,
+          correo: usuario.correo,
+          rol: usuario.rol,
+        },
+        token
+      );
 
       setForm({ correo: '', contrasena: '' });
       

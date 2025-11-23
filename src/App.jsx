@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import Home from './pages/Home';
 import Carrito from './pages/Carrito';
 import Login from './pages/Login';
@@ -9,7 +10,7 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/carrito" element={<Carrito />} />
@@ -18,7 +19,7 @@ function App() {
         <Route path="/perfil" element={<PerfilCliente />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
       </Routes>
-    </>
+    </AuthProvider>
   );
 }
 
