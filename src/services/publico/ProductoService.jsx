@@ -12,7 +12,18 @@ class ProductosService {
       const response = await axiosInstance.get(API_ENDPOINTS.PRODUCTOS.GET_ALL, {
         params,
       });
-      return response.data;
+      // Asegurar que siempre se retorna un array
+      const data = response.data;
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.data)) {
+        return data.data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.productos)) {
+        return data.productos;
+      } else {
+        console.warn('Formato inesperado de respuesta API:', data);
+        return [];
+      }
     } catch (error) {
       console.error('Error al obtener productos:', error.message);
       // Retornar array vacío en lugar de lanzar error para evitar loops
@@ -20,7 +31,9 @@ class ProductosService {
         console.warn('API retornó 401 para ruta pública de productos. Retornando array vacío.');
         return [];
       }
-      throw error;
+      // Para otros errores, también retornar array vacío para evitar crashes
+      console.error('Detalle del error:', error);
+      return [];
     }
   }
 

@@ -12,10 +12,20 @@ class AdminUsuarioService {
       const response = await axiosInstance.get(API_ENDPOINTS.ADMIN_USUARIOS.GET_ALL, {
         params,
       });
-      return response.data;
+      const data = response.data;
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.data)) {
+        return data.data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.usuarios)) {
+        return data.usuarios;
+      } else {
+        console.warn('Formato inesperado de respuesta API usuarios:', data);
+        return [];
+      }
     } catch (error) {
-      console.error('Error al obtener usuarios:', error);
-      throw error;
+      console.error('Error al obtener usuarios:', error.message);
+      return [];
     }
   }
 

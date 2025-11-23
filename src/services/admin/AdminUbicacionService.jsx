@@ -12,10 +12,20 @@ class AdminUbicacionService {
       const response = await axiosInstance.get(API_ENDPOINTS.ADMIN_UBICACIONES.GET_ALL, {
         params,
       });
-      return response.data;
+      const data = response.data;
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.data)) {
+        return data.data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.ubicaciones)) {
+        return data.ubicaciones;
+      } else {
+        console.warn('Formato inesperado de respuesta API ubicaciones admin:', data);
+        return [];
+      }
     } catch (error) {
-      console.error('Error al obtener ubicaciones:', error);
-      throw error;
+      console.error('Error al obtener ubicaciones:', error.message);
+      return [];
     }
   }
 

@@ -12,10 +12,21 @@ class PedidoService {
       const response = await axiosInstance.get(API_ENDPOINTS.PEDIDOS.GET_ALL, {
         params,
       });
-      return response.data;
+      // Asegurar que siempre se retorna un array
+      const data = response.data;
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.data)) {
+        return data.data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.pedidos)) {
+        return data.pedidos;
+      } else {
+        console.warn('Formato inesperado de respuesta API pedidos:', data);
+        return [];
+      }
     } catch (error) {
-      console.error('Error al obtener pedidos:', error);
-      throw error;
+      console.error('Error al obtener pedidos:', error.message);
+      return [];
     }
   }
 

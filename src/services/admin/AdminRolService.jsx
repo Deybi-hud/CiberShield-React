@@ -12,10 +12,20 @@ class AdminRolService {
       const response = await axiosInstance.get(API_ENDPOINTS.ADMIN_ROLES.GET_ALL, {
         params,
       });
-      return response.data;
+      const data = response.data;
+      if (Array.isArray(data)) {
+        return data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.data)) {
+        return data.data;
+      } else if (data && typeof data === 'object' && Array.isArray(data.roles)) {
+        return data.roles;
+      } else {
+        console.warn('Formato inesperado de respuesta API roles:', data);
+        return [];
+      }
     } catch (error) {
-      console.error('Error al obtener roles:', error);
-      throw error;
+      console.error('Error al obtener roles:', error.message);
+      return [];
     }
   }
 
