@@ -8,15 +8,17 @@ const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) =
   const [isAutenticado, setIsAutenticado] = useState(false);
 
   useEffect(() => {
-    // Verificar si hay token en localStorage al montar
-    const token = localStorage.getItem('token');
-    setIsAutenticado(!!token);
-
-    // Crear un intervalo para verificar cambios en el token
-    const interval = setInterval(() => {
+    // Verificar si hay usuario o token en localStorage
+    const checkAuth = () => {
+      const user = localStorage.getItem('user');
       const token = localStorage.getItem('token');
-      setIsAutenticado(!!token);
-    }, 500);
+      setIsAutenticado(!!(user || token));
+    };
+
+    checkAuth();
+
+    // Crear un intervalo para verificar cambios
+    const interval = setInterval(checkAuth, 300);
 
     return () => clearInterval(interval);
   }, []);

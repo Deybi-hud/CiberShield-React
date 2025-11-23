@@ -5,15 +5,26 @@ const API_URL = "https://snake-pc-api.onrender.com/api/v1/perfil";
 class PerfilService {
     
     obtenerPerfil() {
-        return axios.get(API_URL);
+        return axios.get(`${API_URL}/perfil`);
     }
 
-    actualizarPerfil(id, datos) {
-        return axios.put(`${API_URL}/${id}`, datos);
+    actualizarPerfil(datos) {
+        return axios.put(`${API_URL}/perfil`, datos);
     }
 
-    obtenerPorId(id) {
-        return axios.get(`${API_URL}/${id}`);
+    cambiarContrasena(contrasenaActual, contrasenaNueva) {
+        return axios.put(`${API_URL}/cambiar-contrasena`, {
+            contrasenaActual,
+            contrasenaNueva
+        });
+    }
+
+    desactivarCuenta() {
+        return axios.put(`${API_URL}/desactivar-cuenta`);
+    }
+
+    reactivarCuenta() {
+        return axios.put(`${API_URL}/reactivar-cuenta`);
     }
 }
 
