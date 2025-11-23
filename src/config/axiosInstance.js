@@ -29,6 +29,8 @@ axiosInstance.interceptors.request.use(
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
+    console.error('Error en la solicitud:', error.message);
+    
     // Si recibimos 401, el token no es válido
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
@@ -36,6 +38,12 @@ axiosInstance.interceptors.response.use(
       // Redirigir a login si es necesario
       window.location.href = '/login';
     }
+    
+    // Log de errores de red
+    if (!error.response) {
+      console.error('Error de red - posiblemente CORS o conexión fallida');
+    }
+    
     return Promise.reject(error);
   }
 );

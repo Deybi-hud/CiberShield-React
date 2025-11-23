@@ -2,6 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     background-color: var(--clr-main);
+    min-height: 100vh;
+    width: 100%;
 }
 
 /* --- Media Queries para responsividad del Wrapper --- */

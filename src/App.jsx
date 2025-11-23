@@ -75,6 +75,9 @@ function App() {
             </ProtectedRoute>
           } 
         />
+
+        {/* Ruta 404 */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </>
   );

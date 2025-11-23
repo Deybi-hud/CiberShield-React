@@ -19,11 +19,26 @@ const Home = () => {
   useEffect(() => {
     const cargarProductos = async () => {
       try {
+        console.log('Iniciando carga de productos...');
         const data = await ProductoService.getAll();
-        setProductos(data);
-        setProductosFiltrados(data);
+        console.log('Productos cargados:', data);
+        
+        if (Array.isArray(data)) {
+          setProductos(data);
+          setProductosFiltrados(data);
+        } else if (data && typeof data === 'object') {
+          const productosArray = Array.isArray(data.data) ? data.data : [];
+          setProductos(productosArray);
+          setProductosFiltrados(productosArray);
+        } else {
+          console.warn('Formato de datos inesperado:', data);
+          setProductos([]);
+          setProductosFiltrados([]);
+        }
       } catch (error) {
         console.error("Error al cargar productos:", error);
+        setProductos([]);
+        setProductosFiltrados([]);
       }
     };
     cargarProductos();
