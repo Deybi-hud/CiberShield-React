@@ -1,6 +1,6 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
 
+<<<<<<< HEAD
 class AuthService {
   /**
     * Iniciar sesión
@@ -140,6 +140,12 @@ class AuthService {
   getToken() {
     return localStorage.getItem('token');
   }
+=======
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/auth"
+
+class AuthService{
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new AuthService();
+export default new AuthService;

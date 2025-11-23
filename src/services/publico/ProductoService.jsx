@@ -1,7 +1,10 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = 'https://snake-pc-api.onrender.com/api/v1/productos';
+
 
 class ProductosService {
+<<<<<<< HEAD
   /**
    * Obtener todos los productos
    * @param {Object} params - Parámetros de búsqueda (página, límite, categoría, etc.)
@@ -36,70 +39,27 @@ class ProductosService {
       return [];
     }
   }
+=======
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 
-  /**
-   * Obtener producto por ID
-   * @param {string|number} id - ID del producto
-   * @returns {Promise} Datos del producto
-   */
-  async getById(id) {
-    try {
-      const endpoint = API_ENDPOINTS.PRODUCTOS.GET_BY_ID.replace(':id', id);
-      const response = await axiosInstance.get(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al obtener producto con ID ${id}:`, error);
-      throw error;
+    async getAll() {
+        try {
+            const response = await axios.get(`${API_URL}/productos`);
+        } catch (error) {
+            console.error("ERROR --> al obtener un producto: ", error);
+            throw error;
+        }
     }
-  }
 
-  /**
-   * Crear nuevo producto (solo admin)
-   * @param {Object} datos - Datos del producto
-   * @returns {Promise} Producto creado
-   */
-  async create(datos) {
-    try {
-      const response = await axiosInstance.post(API_ENDPOINTS.PRODUCTOS.CREATE, datos);
-      return response.data;
-    } catch (error) {
-      console.error('Error al crear producto:', error);
-      throw error;
-    }
-  }
+    async getById(id) {
+        try {
 
-  /**
-   * Actualizar producto (solo admin)
-   * @param {string|number} id - ID del producto
-   * @param {Object} datos - Datos actualizados
-   * @returns {Promise} Producto actualizado
-   */
-  async update(id, datos) {
-    try {
-      const endpoint = API_ENDPOINTS.PRODUCTOS.UPDATE.replace(':id', id);
-      const response = await axiosInstance.put(endpoint, datos);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al actualizar producto ${id}:`, error);
-      throw error;
+        } catch (error) {
+            console.error("Error --> al obtener un producto", error)
+            throw error;
+        }
     }
-  }
-
-  /**
-   * Eliminar producto (solo admin)
-   * @param {string|number} id - ID del producto
-   * @returns {Promise}
-   */
-  async delete(id) {
-    try {
-      const endpoint = API_ENDPOINTS.PRODUCTOS.DELETE.replace(':id', id);
-      const response = await axiosInstance.delete(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al eliminar producto ${id}:`, error);
-      throw error;
-    }
-  }
 }
+
 
 export default new ProductosService();

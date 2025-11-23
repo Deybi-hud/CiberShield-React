@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/cliente/pedidos"
 
 class PedidoService {
+<<<<<<< HEAD
   /**
    * Obtener todos los pedidos del usuario actual
    * @param {Object} params - Parámetros de búsqueda (página, estado, etc.)
@@ -29,70 +31,9 @@ class PedidoService {
       return [];
     }
   }
+=======
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 
-  /**
-   * Obtener pedido por ID
-   * @param {string|number} id - ID del pedido
-   * @returns {Promise} Datos del pedido
-   */
-  async getById(id) {
-    try {
-      const endpoint = API_ENDPOINTS.PEDIDOS.GET_BY_ID.replace(':id', id);
-      const response = await axiosInstance.get(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al obtener pedido ${id}:`, error);
-      throw error;
-    }
-  }
-
-  /**
-   * Crear nuevo pedido
-   * @param {Object} datos - Datos del pedido (productos, direccion, etc.)
-   * @returns {Promise} Pedido creado
-   */
-  async create(datos) {
-    try {
-      const response = await axiosInstance.post(API_ENDPOINTS.PEDIDOS.CREATE, datos);
-      return response.data;
-    } catch (error) {
-      console.error('Error al crear pedido:', error);
-      throw error;
-    }
-  }
-
-  /**
-   * Actualizar pedido
-   * @param {string|number} id - ID del pedido
-   * @param {Object} datos - Datos actualizados
-   * @returns {Promise} Pedido actualizado
-   */
-  async update(id, datos) {
-    try {
-      const endpoint = API_ENDPOINTS.PEDIDOS.UPDATE.replace(':id', id);
-      const response = await axiosInstance.put(endpoint, datos);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al actualizar pedido ${id}:`, error);
-      throw error;
-    }
-  }
-
-  /**
-   * Cancelar pedido
-   * @param {string|number} id - ID del pedido
-   * @returns {Promise}
-   */
-  async cancel(id) {
-    try {
-      const endpoint = API_ENDPOINTS.PEDIDOS.CANCEL.replace(':id', id);
-      const response = await axiosInstance.post(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al cancelar pedido ${id}:`, error);
-      throw error;
-    }
-  }
 }
 
-export default new PedidoService();
+export default new PedidoService()

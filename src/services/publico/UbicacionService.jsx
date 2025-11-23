@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/ubicacion"
 
 class UbicacionService {
+<<<<<<< HEAD
   /**
    * Obtener todas las ubicaciones (ciudades/países)
    * @param {Object} params - Parámetros de búsqueda
@@ -29,22 +31,9 @@ class UbicacionService {
       return [];
     }
   }
+=======
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 
-  /**
-   * Obtener ubicación por ID
-   * @param {string|number} id - ID de la ubicación
-   * @returns {Promise} Datos de la ubicación
-   */
-  async getById(id) {
-    try {
-      const endpoint = API_ENDPOINTS.UBICACIONES.GET_BY_ID.replace(':id', id);
-      const response = await axiosInstance.get(endpoint);
-      return response.data;
-    } catch (error) {
-      console.error(`Error al obtener ubicación ${id}:`, error);
-      throw error;
-    }
-  }
 }
 
-export default new UbicacionService();
+export default new UbicacionService()

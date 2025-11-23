@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/pedidos"
 
 class AdminPedidoService {
+<<<<<<< HEAD
   /**
    * Obtener todos los pedidos
    * @param {Object} params - Parámetros de búsqueda (página, estado, usuario, etc.)
@@ -61,6 +63,9 @@ class AdminPedidoService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new AdminPedidoService();
+export default new AdminPedidoService()

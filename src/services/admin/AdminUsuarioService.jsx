@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/usuarios"
 
 class AdminUsuarioService {
+<<<<<<< HEAD
   /**
    * Obtener todos los usuarios
    * @param {Object} params - Parámetros de búsqueda (página, rol, estado, etc.)
@@ -92,6 +94,9 @@ class AdminUsuarioService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new AdminUsuarioService();
+export default new AdminUsuarioService()

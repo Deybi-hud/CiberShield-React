@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/"
 
 class PerfilService {
+<<<<<<< HEAD
   /**
    * Obtener perfil del usuario actual
    * @returns {Promise} Datos del perfil del usuario
@@ -45,6 +47,9 @@ class PerfilService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new PerfilService();
+export default new PerfilService()

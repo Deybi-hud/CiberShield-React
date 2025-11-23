@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/ubicacion"
 
 class AdminUbicacionService {
+<<<<<<< HEAD
   /**
    * Obtener todas las ubicaciones
    * @param {Object} params - Parámetros de búsqueda
@@ -92,6 +94,9 @@ class AdminUbicacionService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new AdminUbicacionService();
+export default new AdminUbicacionService()

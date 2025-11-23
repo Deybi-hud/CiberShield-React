@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/roles"
 
 class AdminRolService {
+<<<<<<< HEAD
   /**
    * Obtener todos los roles
    * @param {Object} params - Parámetros de búsqueda
@@ -92,6 +94,9 @@ class AdminRolService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new AdminRolService();
+export default new AdminRolService()

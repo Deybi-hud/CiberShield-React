@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/dashboard"
 
 class DashboardService {
+<<<<<<< HEAD
   /**
    * Obtener estadísticas del dashboard
    * @returns {Promise} Datos de estadísticas generales
@@ -59,6 +61,9 @@ class DashboardService {
       return [];
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new DashboardService();
+export default new DashboardService()

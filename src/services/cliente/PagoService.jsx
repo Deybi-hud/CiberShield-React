@@ -1,7 +1,9 @@
-import axiosInstance from '../../config/axiosInstance';
-import { API_ENDPOINTS } from '../../config/api';
+import axios from "axios";
+
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/cliente/pagos"
 
 class PagoService {
+<<<<<<< HEAD
   /**
    * Crear nuevo pago
    * @param {Object} datos - Datos del pago (monto, método, etc.)
@@ -48,6 +50,9 @@ class PagoService {
       throw error;
     }
   }
+=======
+
+>>>>>>> parent of 6d23ee6 (feat: configuración completa frontend con backend - servicios, vistas cliente y admin)
 }
 
-export default new PagoService();
+export default new PagoService;
