@@ -2,27 +2,19 @@ import axios from "axios";
 
 const API_URL = 'https://snake-pc-api.onrender.com/api/v1/productos';
 
-
-class ProductosService {
-
-    async getAll() {
-        try {
-            const response = await axios.get(`${API_URL}/productos`);
-        } catch (error) {
-            console.error("ERROR --> al obtener un producto: ", error);
-            throw error;
-        }
+class ProductoService {
+    
+    getAll() {
+        return axios.get(API_URL);
     }
 
-    async getById(id) {
-        try {
+    getById(id) {
+        return axios.get(`${API_URL}/${id}`);
+    }
 
-        } catch (error) {
-            console.error("Error --> al obtener un producto", error)
-            throw error;
-        }
+    getCategorias() {
+        return axios.get(`${API_URL}/categorias`);
     }
 }
 
-
-export default new ProductosService();
+export default new ProductoService();
