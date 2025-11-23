@@ -142,9 +142,10 @@ const PerfilCliente = () => {
       setSuccessMessage('Contraseña actualizada correctamente');
       setTimeout(() => setSuccessMessage(''), 3000);
     } catch (error) {
-      const msg = error.response?.data?.error || 'Error al cambiar la contraseña';
+      console.log('RESPONSE DATA:', error.response?.data);
+      console.log('RESPONSE STATUS:', error.response?.status);
+      const msg = error.response?.data?.error || error.response?.data?.message || error.response?.data?.detail || 'Error al cambiar la contraseña';
       setErrors({ general: msg });
-      console.error('Error:', error);
     } finally {
       setLoading(false);
     }
