@@ -16,7 +16,6 @@ const Home = () => {
 
   const { agregarAlCarrito, productosEnCarrito } = useCarrito();
 
-  // Monitorear cambios de autenticación
   useEffect(() => {
     const interval = setInterval(() => {
       setAuthCheck(prev => prev + 1);
@@ -31,7 +30,7 @@ const Home = () => {
         console.log('Iniciando carga de productos...');
         const data = await ProductoService.getAll();
         console.log('Productos cargados:', data);
-        
+
         if (Array.isArray(data)) {
           setProductos(data);
           setProductosFiltrados(data);

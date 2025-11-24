@@ -32,7 +32,6 @@ const Perfil = () => {
     } catch (err) {
       console.error('Error al cargar perfil:', err);
       setError('No se pudieron cargar los datos del perfil');
-      // Si hay error, usamos datos del contexto como respaldo
       if (usuario) {
         setPerfilData(usuario);
       }
@@ -41,7 +40,7 @@ const Perfil = () => {
     }
   };
 
-  
+
 
   const handleLogout = () => {
     logout();
@@ -57,9 +56,9 @@ const Perfil = () => {
       <Wrapper>
         <SidebarHome
           categoriaActiva="perfil"
-          filtrarPorCategoria={(categoriaActiva) => {categoriaActiva}}
+          filtrarPorCategoria={(categoriaActiva) => { categoriaActiva }}
           productosEnCarrito={[]}
-          onSearch={() => {}}
+          onSearch={() => { }}
         />
         <main>
           <div className="perfil-loading">
