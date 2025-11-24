@@ -1,8 +1,7 @@
-// src/pages/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { loginService } from '../services/auth/loginService';
+import { LoginService } from '../services/auth/LoginService';
 import LoginCard from '../components/organisms/LoginCard';
 
 const Login = () => {
@@ -22,7 +21,7 @@ const Login = () => {
     setErrors({});
 
     try {
-      const res = await loginService.login(form.correo, form.contrasena);
+      const res = await LoginService.login(form.correo, form.contrasena);
       const data = await res.json();
       login(data.usuario);
       navigate('/');
