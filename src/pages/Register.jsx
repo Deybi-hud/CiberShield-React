@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterCard from '../components/organisms/RegisterCard';
-import { LoginService } from '../services/Index';
+import { LoginService } from '../services/index';
 
 const Register = () => {
   const navigate = useNavigate();
