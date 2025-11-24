@@ -51,7 +51,6 @@ const ProductoService = {
         return data.map(producto => ({
           ...producto,
           nombre: producto.nombreProducto || producto.nombre,
-          // También mapear otros campos si es necesario
         }));
       }
 
@@ -66,8 +65,6 @@ const ProductoService = {
     try {
       const response = await api.get(`/productos/${id}`);
       const producto = response.data;
-
-      // Aplicar la misma transformación
       return {
         ...producto,
         nombre: producto.nombreProducto || producto.nombre,
