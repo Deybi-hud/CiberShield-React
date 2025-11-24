@@ -4,6 +4,7 @@ import Carrito from './pages/Carrito';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
+import Perfil from './pages/Perfil';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/registro" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
+        <Route path="/perfil" element={<Perfil />} />
       </Routes>
     </>
   );
