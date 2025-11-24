@@ -72,10 +72,10 @@ const Perfil = () => {
   return (
     <Wrapper>
       <SidebarHome
-        categoriaActiva="perfil"
-        filtrarPorCategoria={(filtrarPorCategoria) => {filtrarPorCategoria}}
-        productosEnCarrito={[]}
-        onSearch={() => {}}
+        categoriaActiva={categoriaActiva}
+        filtrarPorCategoria={filtrarPorCategoria}
+        productosEnCarrito={productosEnCarrito}
+        onSearch={handleSearch}
       />
       <MainPerfil
         perfilData={perfilData || usuario}
