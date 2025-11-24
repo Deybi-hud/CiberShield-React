@@ -55,7 +55,7 @@ const Perfil = () => {
       <Wrapper>
         <SidebarHome
           categoriaActiva="perfil"
-          filtrarPorCategoria={() => {}}
+          filtrarPorCategoria={(categoriaActiva) => {categoriaActiva}}
           productosEnCarrito={[]}
           onSearch={() => {}}
         />
@@ -73,7 +73,7 @@ const Perfil = () => {
     <Wrapper>
       <SidebarHome
         categoriaActiva="perfil"
-        filtrarPorCategoria={() => {}}
+        filtrarPorCategoria={(filtrarPorCategoria) => {filtrarPorCategoria}}
         productosEnCarrito={[]}
         onSearch={() => {}}
       />
