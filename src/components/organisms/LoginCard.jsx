@@ -22,7 +22,6 @@ const LoginCard = ({ form, handleChange, errors, loading, onSubmit }) => {
         loading={loading}
         onSubmit={onSubmit}
       />
-
       <div style={{ marginTop: '1rem', textAlign: 'center' }}>
         <Link to="/registro" className="registro-link">
           ¿No tienes una cuenta? crea una cuenta
