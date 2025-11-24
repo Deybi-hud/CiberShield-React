@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext'; // ✨ AGREGAR
 import LoginCard from '../components/organisms/LoginCard';
 import { AuthService } from '../services/index';
 import '../styles/pages/Login.css';
@@ -9,6 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const { login } = useAuth(); // ✨ AGREGAR
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    console.log('Form actual:', form);
+    console.log('📝 Form actual:', form);
     
     if (!form.correo || !form.contrasena) {
       setErrors({ general: 'Completa todos los campos' });
@@ -28,30 +30,41 @@ const Login = () => {
     setErrors({});
 
     try {
-      console.log('Enviando login con:', form);
+      console.log('🔐 Enviando login con:', form);
       const response = await AuthService.login(form);
-      console.log('Respuesta:', response.data);
+      console.log('📦 Respuesta completa:', response.data);
+      
       const usuario = response.data.usuario;
+      const token = response.data.token || 'session-token';
 
-      // Guardar usuario en localStorage
-      localStorage.setItem('user', JSON.stringify({
+      console.log('👤 Usuario recibido:', usuario);
+
+      // ✨ Mapear a la estructura del contexto
+      const usuarioMapeado = {
         id: usuario.id,
-        nombreUsuario: usuario.nombreUsuario,
-        correo: usuario.correo,
-        rol: usuario.rol,
-      }));
+        nombre: usuario.nombreUsuario, // Mapear nombreUsuario -> nombre
+        email: usuario.correo, // Mapear correo -> email
+        rol: usuario.rol
+      };
+
+      console.log('✨ Usuario mapeado:', usuarioMapeado);
+      console.log('🔑 Token:', token);
+
+      // ✨ Guardar en el contexto (esto automáticamente guarda en localStorage)
+      login(usuarioMapeado, token);
+
+      console.log('✅ Sesión guardada correctamente');
 
       setForm({ correo: '', contrasena: '' });
       
       // Redirigir según rol
-      setTimeout(() => {
-        if (usuario.rol === 'ADMIN' || usuario.rol === 'MODERADOR') {
-          navigate('/admin/dashboard');
-        } else {
-          navigate('/');
-        }
-      }, 500);
+      if (usuario.rol === 'ADMIN' || usuario.rol === 'MODERADOR') {
+        navigate('/admin/dashboard');
+      } else {
+        navigate('/');
+      }
     } catch (error) {
+      console.error('❌ Error en login:', error);
       const msg = error.response?.data?.error || 'Credenciales inválidas';
       setErrors({ general: msg });
     } finally {
