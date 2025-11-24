@@ -1,30 +1,35 @@
-import axios from "axios";
+import axiosInstance from "../../config/axiosInstance";
 
-const API_URL = "https://snake-pc-api.onrender.com/api/v1/perfil";
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/perfiles";
 
 class PerfilService {
     
     obtenerPerfil() {
-        return axios.get(`${API_URL}/perfil`);
+        const user = JSON.parse(localStorage.getItem('user'));
+        return axiosInstance.get(`${API_URL}/${user?.id}`);
     }
 
     actualizarPerfil(datos) {
-        return axios.put(`${API_URL}/perfil`, datos);
+        const user = JSON.parse(localStorage.getItem('user'));
+        return axiosInstance.put(`${API_URL}/${user?.id}`, datos);
     }
 
     cambiarContrasena(contrasenaActual, contrasenaNueva) {
-        return axios.put(`${API_URL}/cambiar-contrasena`, {
+        const user = JSON.parse(localStorage.getItem('user'));
+        return axiosInstance.put(`${API_URL}/cambiar-contrasena/${user?.id}`, {
             contrasenaActual,
             contrasenaNueva
         });
     }
 
     desactivarCuenta() {
-        return axios.put(`${API_URL}/desactivar-cuenta`);
+        const user = JSON.parse(localStorage.getItem('user'));
+        return axiosInstance.put(`${API_URL}/desactivar-cuenta/${user?.id}`);
     }
 
     reactivarCuenta() {
-        return axios.put(`${API_URL}/reactivar-cuenta`);
+        const user = JSON.parse(localStorage.getItem('user'));
+        return axiosInstance.put(`${API_URL}/reactivar-cuenta/${user?.id}`);
     }
 }
 

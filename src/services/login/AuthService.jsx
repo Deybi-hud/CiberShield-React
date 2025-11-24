@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://snake-pc-api.onrender.com/api/v1/auth";
+const API_URL = "https://snake-pc-api.onrender.com/api/v1/auths";
 
 class AuthService {
     
