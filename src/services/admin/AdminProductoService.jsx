@@ -1,27 +1,27 @@
-import axios from "axios";
+import axiosInstance from "../../config/axiosInstance";
 
 const API_URL = "https://snake-pc-api.onrender.com/api/v1/admin/productos";
 
 class AdminProductoService {
     
     getAll() {
-        return axios.get(API_URL);
+        return axiosInstance.get(API_URL);
     }
 
     getById(id) {
-        return axios.get(`${API_URL}/${id}`);
+        return axiosInstance.get(`${API_URL}/${id}`);
     }
 
     crear(producto) {
-        return axios.post(API_URL, producto);
+        return axiosInstance.post(API_URL, producto);
     }
 
     actualizar(id, producto) {
-        return axios.put(`${API_URL}/${id}`, producto);
+        return axiosInstance.put(`${API_URL}/${id}`, producto);
     }
 
     eliminar(id) {
-        return axios.delete(`${API_URL}/${id}`);
+        return axiosInstance.delete(`${API_URL}/${id}`);
     }
 }
 
