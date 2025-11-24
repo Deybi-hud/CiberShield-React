@@ -58,11 +58,9 @@ const Home = () => {
 
     if (categoriaActiva !== "todos") {
       resultado = resultado.filter((p) => {
-        // Verificar si categoria existe y tiene id
         if (p.categoria && p.categoria.id) {
           return p.categoria.id === categoriaActiva;
         }
-        // También soportar categoria como string
         if (typeof p.categoria === 'string') {
           return p.categoria === categoriaActiva;
         }
