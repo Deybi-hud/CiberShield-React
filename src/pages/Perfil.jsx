@@ -41,22 +41,7 @@ const Perfil = () => {
     }
   };
 
-   useEffect(() => {
-      let resultado = productos;
   
-      if (categoriaActiva !== "todos") {
-        resultado = resultado.filter((p) => {
-          if (p.categoria && p.categoria.id) {
-            return p.categoria.id === categoriaActiva;
-          }
-          if (typeof p.categoria === 'string') {
-            return p.categoria === categoriaActiva;
-          }
-          return false;
-        });
-      }
-    });
-
 
   const handleLogout = () => {
     logout();
