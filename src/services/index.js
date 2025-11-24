@@ -44,7 +44,18 @@ const ProductoService = {
   async getAll() {
     try {
       const response = await api.get('/productos');
-      return response.data;
+      const data = response.data;
+
+      // Mapear nombreProducto a nombre
+      if (Array.isArray(data)) {
+        return data.map(producto => ({
+          ...producto,
+          nombre: producto.nombreProducto || producto.nombre,
+          // También mapear otros campos si es necesario
+        }));
+      }
+
+      return data;
     } catch (error) {
       console.error('Error fetching productos:', error);
       throw error;
@@ -54,7 +65,13 @@ const ProductoService = {
   async getById(id) {
     try {
       const response = await api.get(`/productos/${id}`);
-      return response.data;
+      const producto = response.data;
+
+      // Aplicar la misma transformación
+      return {
+        ...producto,
+        nombre: producto.nombreProducto || producto.nombre,
+      };
     } catch (error) {
       console.error(`Error fetching producto ${id}:`, error);
       throw error;
@@ -301,7 +318,7 @@ const PerfilService = {
     try {
       const formData = new FormData();
       formData.append('file', file);
-      
+
       const response = await api.put('/usuario/subir-foto', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -683,17 +700,17 @@ export {
   // Públicos
   ProductoService,
   UbicacionService,
-  
+
   // Autenticación
   AuthService,
   LoginService,
-  
+
   // Cliente
   PedidoService,
   PagoService,
   PerfilService,
   CarritoService,
-  
+
   // Admin
   AdminPedidoService,
   AdminProductoService,
@@ -701,7 +718,7 @@ export {
   AdminRolService,
   AdminUbicacionService,
   DashboardService,
-  
+
   // Configuración
   api,
   API_BASE_URL
