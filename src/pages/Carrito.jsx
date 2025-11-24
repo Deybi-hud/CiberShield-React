@@ -1,27 +1,37 @@
-// src/pages/Carrito.jsx
 import React from 'react';
+import 'bootstrap-icons/font/bootstrap-icons.min.css';
+import '../styles/molecules/CartItem.css';
 import Wrapper from "../components/templates/Wrapper";
+import { useCarrito } from '../context/CarritoContext';
 import SidebarCarrito from '../components/organisms/SidebarCarrito';
 import MainCarrito from '../components/organisms/MainCarrito';
-import { useCarrito } from '../context/CarritoContext';
-import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 
 function Carrito() {
   const { productosEnCarrito, eliminarDelCarrito, vaciarCarrito, comprarCarrito, compraRealizada } = useCarrito();
-  const { isAuthenticated } = useAuth();
-  const navigate = useNavigate();
 
-  const total = productosEnCarrito.reduce((acc, p) => acc + (p.precio * p.cantidad), 0);
-  const carritoVacio = productosEnCarrito.length === 0;
+  const productosSeguros = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
+
+  const calcularTotal = () => {
+    return productosSeguros.reduce(
+      (acc, prod) => {
+        const precio = prod?.precio || 0;
+        const cantidad = prod?.cantidad || 0;
+        return acc + (typeof precio === 'number' ? precio * cantidad : 0);
+      },
+      0
+    );
+  };
+
+  const total = calcularTotal();
+  const carritoVacio = productosSeguros.length === 0;
+
+  const handleVaciar = () => {
+    vaciarCarrito();
+  };
 
   const handleComprar = () => {
-    if (!isAuthenticated()) {
-      alert('Debes iniciar sesión para comprar');
-      navigate('/login');
-      return;
-    }
     comprarCarrito();
+
   };
 
   return (
@@ -30,10 +40,10 @@ function Carrito() {
       <MainCarrito
         carritoVacio={carritoVacio}
         carritoComprar={compraRealizada}
-        productosEnCarrito={productosEnCarrito}
+        productosEnCarrito={productosSeguros}
         eliminarDelCarrito={eliminarDelCarrito}
         handleComprar={handleComprar}
-        handleVaciar={vaciarCarrito}
+        handleVaciar={handleVaciar}
         total={total}
       />
     </Wrapper>

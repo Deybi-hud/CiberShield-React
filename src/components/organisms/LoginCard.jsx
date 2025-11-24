@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Image from '../atoms/Image';
 import Text from '../atoms/Text';
 import LoginForm from '../molecules/LoginForm';
-import Link from '../atoms/Link';
 
-const LoginCard = ({ email, setEmail, password, setPassword, errors, isLoading, onSubmit, onRegisterClick }) => {
+const LoginCard = ({ form, handleChange, errors, loading, onSubmit }) => {
   return (
     <>
       <Image
@@ -16,17 +16,16 @@ const LoginCard = ({ email, setEmail, password, setPassword, errors, isLoading, 
         Iniciar Sesión
       </Text>
       <LoginForm
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
+        form={form}
+        handleChange={handleChange}
         errors={errors}
-        isLoading={isLoading}
-        onSubmit={onSubmit} />
+        loading={loading}
+        onSubmit={onSubmit}
+      />
 
       <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-        <Link to="/registro" className="login-link">
-          ¿No tienes cuenta? Regístrate
+        <Link to="/registro" className="registro-link">
+          ¿No tienes una cuenta? crea una cuenta
         </Link>
       </div>
     </>

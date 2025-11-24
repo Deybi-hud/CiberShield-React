@@ -1,72 +1,58 @@
- 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import List from "../atoms/List";
-import ListItem from '../atoms/ListItem';
+import React, { useState, useEffect } from "react";
 import Button from "../atoms/Button";
-import { useAuth } from '../../context/AuthContext';
-
+import Link from "../atoms/Link";
+import "../../styles/organisms/Nav.css";
+import List from "../atoms/List";
+import ListItem from '../atoms/ListItem'
 const NavMenu = ({ categoriaActiva, filtrarPorCategoria, productosEnCarrito }) => {
-  const { usuario, logout, isAuthenticated } = useAuth();
+  const [isAutenticado, setIsAutenticado] = useState(false);
 
-  const totalCarrito = productosEnCarrito.reduce((acc, p) => acc + (p.cantidad || 0), 0);
+  useEffect(() => {
+    // Verificar si hay token en localStorage al montar
+    const token = localStorage.getItem('token');
+    setIsAutenticado(!!token);
+
+    // Crear un intervalo para verificar cambios en el token
+    const interval = setInterval(() => {
+      const token = localStorage.getItem('token');
+      setIsAutenticado(!!token);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const carritoSeguro = Array.isArray(productosEnCarrito) ? productosEnCarrito : [];
+  const totalCarrito = carritoSeguro.reduce(
+    (acc, prod) => acc + (prod?.cantidad || 0),
+    0
+  );
 
   return (
     <nav>
       <List as="ul" className="menu">
         <ListItem>
-          {isAuthenticated() ? (
-            <Link to="/perfil" className="boton-menu boton-iniciar-sesion">
-              <i className="bi bi-person-circle"></i> Perfil
-            </Link>
+          {isAutenticado ? (
+            <Link to="/perfil" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Perfil{" "}</Link>
           ) : (
-            <Link to="/login" className="boton-menu boton-iniciar-sesion">
-              <i className="bi bi-person-circle"></i> Iniciar sesión
-            </Link>
+            <Link to="/login" className="boton-menu boton-iniciar-sesion"><i className="bi bi-person-circle"></i> Iniciar sesión{" "}</Link>
           )}
         </ListItem>
 
         <ListItem>
-          <Button
-            className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("todos")}
-          >
-            Todos los productos
-          </Button>
+          <Button id="todos" className={`boton-menu boton-categoria ${categoriaActiva === "todos" ? "active" : ""}`} onClick={() => filtrarPorCategoria("todos")}><i className="bi bi-hand-index-thumb-fill"></i> Todos los productos</Button>
         </ListItem>
 
         <ListItem>
-          <Button
-            className={`boton-menu boton-categoria ${categoriaActiva === "hardware" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("hardware")}
-          >
-            Hardware
-          </Button>
+          <Button id="hardware" className={`boton-menu boton-categoria ${categoriaActiva === "hardware" ? "active" : ""}`} onClick={() => filtrarPorCategoria("hardware")}><i className="bi bi-hand-index-thumb"></i> Hardware</Button>
         </ListItem>
 
         <ListItem>
-          <Button
-            className={`boton-menu boton-categoria ${categoriaActiva === "software" ? "active" : ""}`}
-            onClick={() => filtrarPorCategoria("software")}
-          >
-            Software
-          </Button>
+          <Button id="software" className={`boton-menu boton-categoria ${categoriaActiva === "software" ? "active" : ""}`} onClick={() => filtrarPorCategoria("software")}><i className="bi bi-hand-index-thumb"></i> Software</Button>
         </ListItem>
 
         <ListItem>
-          <Link to="/carrito" className="boton-menu boton-carrito">
-            <i className="bi bi-cart-fill"></i> Carrito
-            {totalCarrito > 0 && <span className="numerito">{totalCarrito}</span>}
-          </Link>
+          <Link to="/carrito" className="boton-menu boton-carrito"><i className="bi bi-cart-fill"></i> Carrito{" "}<span className="numerito">{totalCarrito}</span> </Link>
         </ListItem>
-
-        {isAuthenticated() && (
-          <ListItem>
-            <Button onClick={logout} className="boton-menu" style={{ color: '#dc3545' }}>
-              Cerrar sesión
-            </Button>
-          </ListItem>
-        )}
       </List>
     </nav>
   );

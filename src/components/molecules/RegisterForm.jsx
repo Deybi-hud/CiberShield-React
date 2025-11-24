@@ -16,21 +16,11 @@ const RegisterForm = ({
 
       <Input
         type="text"
-        name="nombre"
-        placeholder="Nombre"
-        value={formData.nombre}
+        name="nombreUsuario"
+        placeholder="Nombre de usuario"
+        value={formData.nombreUsuario}
         onChange={onChange}
-        error={errors.nombre}
-        required
-        className="login-input"
-      />
-      <Input
-        type="text"
-        name="apellido"
-        placeholder="Apellido"
-        value={formData.apellido}
-        onChange={onChange}
-        error={errors.apellido}
+        error={errors.nombreUsuario}
         required
         className="login-input"
       />
@@ -52,6 +42,17 @@ const RegisterForm = ({
         value={formData.contrasena}
         onChange={onChange}
         error={errors.contrasena}
+        required
+        className="login-input"
+      />
+
+      <Input
+        type="password"
+        name="confirmarContrasena"
+        placeholder="Confirmar contraseña"
+        value={formData.confirmarContrasena}
+        onChange={onChange}
+        error={errors.confirmarContrasena}
         required
         className="login-input"
       />
