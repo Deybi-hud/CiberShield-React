@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterCard from '../components/organisms/RegisterCard';
-import AuthService from '../services/login/AuthService';
+import AuthService from '../services/auth/AuthService';
 import '../styles/pages/Login.css'; // Reutilizamos el layout centrado del Login
 
 const Register = () => {
