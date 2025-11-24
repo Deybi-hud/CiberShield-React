@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginCard from '../components/organisms/LoginCard';
-import { AuthService } from '../services/Index';
+import { AuthService } from '../services/index';
 import '../styles/pages/Login.css';
 
 const Login = () => {
