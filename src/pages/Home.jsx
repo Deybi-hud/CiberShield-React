@@ -3,7 +3,7 @@ import Wrapper from "../components/templates/Wrapper";
 import SidebarHome from "../components/organisms/SidebarHome";
 import MainHome from "../components/organisms/MainHome";
 import { useCarrito } from '../context/CarritoContext';
-import { ProductoService } from "../services/Index";
+import { ProductoService } from "../services/index";
 import '../styles/pages/Home.css';
 
 const Home = () => {
