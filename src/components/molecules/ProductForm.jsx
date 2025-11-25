@@ -10,10 +10,10 @@ const ProductForm = ({ onSubmit, onCancel, loading }) => {
     sku: '',
     precio: '',
     stock: '',
-    descripcion: '',
     imagen: '',
-    categoriaId: '',
-    marcaId: ''
+    marcaNombre: '',
+    nombreCategoria: '',
+    subcategoria: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -41,7 +41,9 @@ const ProductForm = ({ onSubmit, onCancel, loading }) => {
     if (!formData.sku) newErrors.sku = 'SKU es requerido';
     if (!formData.precio || formData.precio <= 0) newErrors.precio = 'Precio válido es requerido';
     if (!formData.stock || formData.stock < 0) newErrors.stock = 'Stock válido es requerido';
-    if (!formData.categoriaId) newErrors.categoriaId = 'Categoría es requerida';
+    if (!formData.marcaNombre) newErrors.marcaNombre = 'Nombre de marca es requerida';
+    if (!formData.nombreCategoria) newErrors.nombreCategoria = 'nombre de categoria es requerida';
+    if (!formData.subcategoria) newErrors.subcategoria = 'nombre de subcategoria es requerida';
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -50,10 +52,14 @@ const ProductForm = ({ onSubmit, onCancel, loading }) => {
 
     const dataToSubmit = {
       ...formData,
+      nombreProducto: String(formData.nombreProducto),
+      sku: String(formData.sku),
       precio: Number(formData.precio),
+      imagen: String(formData.imagen),
       stock: Number(formData.stock),
-      categoriaId: Number(formData.categoriaId),
-      marcaId: formData.marcaId ? Number(formData.marcaId) : null
+      marcaNombre: String(formData.marcaNombre),
+      nombreCategoria: String(formData.nombreCategoria),
+      subcategoria: String(formData.subcategoria)
     };
 
     onSubmit(dataToSubmit);
