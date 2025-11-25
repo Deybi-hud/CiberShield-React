@@ -57,11 +57,17 @@ const Home = () => {
 
     if (categoriaActiva !== "todos") {
       resultado = resultado.filter((p) => {
-        if (p.categoria && p.categoria.id) {
-          return p.categoria.id === categoriaActiva;
+        if (p.productoCategoria?.categoria?.nombreCategoria) {
+          return p.productoCategoria.categoria.nombreCategoria.toLowerCase() === categoriaActiva.toLowerCase();
         }
-        if (typeof p.categoria === 'string') {
-          return p.categoria === categoriaActiva;
+
+        if (p.categoria) {
+          if (p.categoria.id) {
+            return p.categoria.id === categoriaActiva;
+          }
+          if (typeof p.categoria === 'string') {
+            return p.categoria === categoriaActiva;
+          }
         }
         return false;
       });
