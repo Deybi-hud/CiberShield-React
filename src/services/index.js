@@ -1,17 +1,14 @@
-// src/services/index.js
-import axios from 'axios';
+ import axios from 'axios';
 
 const API_BASE_URL = 'https://snake-pc-api.onrender.com/api/v1/';
 
-// Configuración base de axios
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
 });
-
-// Interceptor para agregar token automáticamente
+ 
 api.interceptors.request.use(
   (config) => {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
@@ -24,8 +21,7 @@ api.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
-// Interceptor para manejar errores globalmente
+ 
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -37,16 +33,13 @@ api.interceptors.response.use(
   }
 );
 
-// ==================== SERVICIOS PÚBLICOS ====================
-
-// Productos
 const ProductoService = {
   async getAll() {
     try {
       const response = await api.get('/productos');
       const data = response.data;
 
-      // Mapear nombreProducto a nombre
+ 
       if (Array.isArray(data)) {
         return data.map(producto => ({
           ...producto,
@@ -86,7 +79,7 @@ const ProductoService = {
   }
 };
 
-// Ubicaciones
+ 
 const UbicacionService = {
   async getRegiones() {
     try {
@@ -128,8 +121,6 @@ const UbicacionService = {
     }
   }
 };
-
-// ==================== SERVICIOS DE AUTENTICACIÓN ====================
 
 const AuthService = {
   async login(credentials) {
@@ -177,9 +168,6 @@ const LoginService = {
   isAdmin: AuthService.isAdmin
 };
 
-// ==================== SERVICIOS PARA CLIENTE ====================
-
-// Pedidos
 const PedidoService = {
   async crearPedido(pedidoData) {
     try {
@@ -254,7 +242,6 @@ const PedidoService = {
   }
 };
 
-// Pagos
 const PagoService = {
   async getMisPagos() {
     try {
@@ -277,7 +264,6 @@ const PagoService = {
   }
 };
 
-// Perfil
 const PerfilService = {
   async getMiPerfil() {
     try {
@@ -349,7 +335,6 @@ const PerfilService = {
   }
 };
 
-// Carrito
 const CarritoService = {
   async guardarCarritoBackend(carritoData) {
     try {
@@ -372,9 +357,6 @@ const CarritoService = {
   }
 };
 
-// ==================== SERVICIOS PARA ADMINISTRADOR ====================
-
-// Pedidos Admin
 const AdminPedidoService = {
   async getAllPedidos() {
     try {
@@ -409,7 +391,6 @@ const AdminPedidoService = {
   }
 };
 
-// Productos Admin
 const AdminProductoService = {
   async crearProducto(productoData) {
     try {
@@ -502,7 +483,6 @@ const AdminProductoService = {
   }
 };
 
-// Usuarios Admin
 const AdminUsuarioService = {
   async getAllContactos() {
     try {
@@ -557,7 +537,6 @@ const AdminUsuarioService = {
   }
 };
 
-// Roles Admin
 const AdminRolService = {
   async crearRol(rol) {
     try {
@@ -602,7 +581,6 @@ const AdminRolService = {
   }
 };
 
-// Ubicaciones Admin
 const AdminUbicacionService = {
   async crearRegion(region) {
     try {
@@ -637,7 +615,6 @@ const AdminUbicacionService = {
   }
 };
 
-// Dashboard Admin
 const DashboardService = {
   async getPedidosDelDia() {
     try {
@@ -692,31 +669,21 @@ const DashboardService = {
   }
 };
 
-// Exportar todos los servicios
 export {
-  // Públicos
   ProductoService,
   UbicacionService,
-
-  // Autenticación
   AuthService,
   LoginService,
-
-  // Cliente
   PedidoService,
   PagoService,
   PerfilService,
   CarritoService,
-
-  // Admin
   AdminPedidoService,
   AdminProductoService,
   AdminUsuarioService,
   AdminRolService,
   AdminUbicacionService,
   DashboardService,
-
-  // Configuración
   api,
   API_BASE_URL
 };
