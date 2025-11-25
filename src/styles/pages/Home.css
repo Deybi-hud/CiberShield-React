@@ -3,7 +3,6 @@
     margin-bottom: 2rem;
 }
 
-/* --- Media Queries para Home --- */
 @media screen and (max-width: 600px) {
     aside {
         position: fixed;
