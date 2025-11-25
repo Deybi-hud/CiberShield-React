@@ -11,6 +11,7 @@
 .producto-titulo {
     font-size: 1rem;
     margin-bottom: .3rem;
+    color:var(white)
 }
 
 .producto-precio {
