@@ -1,4 +1,3 @@
-// src/pages/AdminDashboard.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../components/templates/Wrapper';
@@ -63,7 +62,6 @@ const AdminDashboard = () => {
     navigate('/login');
   };
 
-  // Datos básicos del admin
   const adminData = {
     nombre: usuario?.nombre || 'Administrador',
     email: usuario?.email || 'admin123@gmail.com',

@@ -1,4 +1,3 @@
-// src/pages/Perfil.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../components/templates/Wrapper';
@@ -33,7 +32,6 @@ const Perfil = () => {
     } catch (err) {
       console.error('Error al cargar perfil:', err);
       setError('No se pudieron cargar los datos del perfil');
-      // Si hay error, usar datos básicos del usuario del contexto
       if (usuario) {
         setPerfilData(usuario);
       }
@@ -48,7 +46,6 @@ const Perfil = () => {
   };
 
   const handleEditarPerfil = () => {
-    // Aquí puedes implementar la edición del perfil
     console.log('Editar perfil');
   };
 

@@ -1,7 +1,6 @@
-// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext'; // Esta importación debería funcionar ahora
+import { useAuth } from '../context/AuthContext';
 import LoginCard from '../components/organisms/LoginCard';
 import { AuthService } from '../services/index';
 import '../styles/pages/Login.css';
