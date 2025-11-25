@@ -1,3 +1,4 @@
+// src/pages/Perfil.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Wrapper from '../components/templates/Wrapper';
@@ -32,6 +33,7 @@ const Perfil = () => {
     } catch (err) {
       console.error('Error al cargar perfil:', err);
       setError('No se pudieron cargar los datos del perfil');
+      // Si hay error, usar datos básicos del usuario del contexto
       if (usuario) {
         setPerfilData(usuario);
       }
@@ -40,15 +42,14 @@ const Perfil = () => {
     }
   };
 
-
-
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
   const handleEditarPerfil = () => {
-    navigate('/perfil/editar');
+    // Aquí puedes implementar la edición del perfil
+    console.log('Editar perfil');
   };
 
   if (loading) {
@@ -56,9 +57,9 @@ const Perfil = () => {
       <Wrapper>
         <SidebarHome
           categoriaActiva="perfil"
-          filtrarPorCategoria={(categoriaActiva) => { categoriaActiva }}
+          filtrarPorCategoria={() => {}}
           productosEnCarrito={[]}
-          onSearch={() => { }}
+          onSearch={() => {}}
         />
         <main>
           <div className="perfil-loading">
@@ -73,10 +74,10 @@ const Perfil = () => {
   return (
     <Wrapper>
       <SidebarHome
-        categoriaActiva={categoriaActiva}
-        filtrarPorCategoria={filtrarPorCategoria}
-        productosEnCarrito={productosEnCarrito}
-        onSearch={handleSearch}
+        categoriaActiva="perfil"
+        filtrarPorCategoria={() => {}}
+        productosEnCarrito={[]}
+        onSearch={() => {}}
       />
       <MainPerfil
         perfilData={perfilData || usuario}

@@ -1,18 +1,20 @@
+// src/components/organisms/MainAdminDashboard.js
 import React from "react";
 import Text from "../atoms/Text";
 import Button from "../atoms/Button";
 import Image from "../atoms/Image";
 import PerfilInfoCard from "../molecules/PerfilInfoCard";
+import ProductManager from "../molecules/ProductManager";
 import "../../styles/organisms/MainPerfil.css";
 
-const MainAdminDashboard = ({ perfilData, onLogout, onEditar, error }) => {
+const MainAdminDashboard = ({ perfilData, onLogout, onCrearProducto, onEliminarProducto, error }) => {
   if (!perfilData) {
     return (
       <main className="perfil-main">
-        <Text as="h2" className="titulo-principal">Mi Perfil</Text>
+        <Text as="h2" className="titulo-principal">Panel de Administrador</Text>
         <div className="perfil-error">
           <i className="bi bi-exclamation-triangle"></i>
-          <Text as="p">No se pudieron cargar los datos del perfil</Text>
+          <Text as="p">No se pudieron cargar los datos del administrador</Text>
         </div>
       </main>
     );
@@ -23,11 +25,8 @@ const MainAdminDashboard = ({ perfilData, onLogout, onEditar, error }) => {
   return (
     <main className="perfil-main">
       <div className="perfil-header">
-        <Text as="h2" className="titulo-principal">Mi Perfil</Text>
+        <Text as="h2" className="titulo-principal">Panel de Administrador</Text>
         <div className="perfil-acciones-header">
-          <Button className="boton-editar-perfil" onClick={onEditar}>
-            <i className="bi bi-pencil-fill"></i> Editar Perfil
-          </Button>
           <Button className="boton-cerrar-sesion" onClick={onLogout}>
             <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
           </Button>
@@ -46,7 +45,7 @@ const MainAdminDashboard = ({ perfilData, onLogout, onEditar, error }) => {
           <div className="perfil-foto-container">
             <Image
               src="/assets/img/login/user.png"
-              alt="Foto de perfil"
+              alt="Foto de administrador"
               className="perfil-foto"
             />
           </div>
@@ -54,16 +53,24 @@ const MainAdminDashboard = ({ perfilData, onLogout, onEditar, error }) => {
             <Text as="h3" className="perfil-nombre-completo">{nombre}</Text>
             <Text as="p" className="perfil-email-principal">{email}</Text>
             {rol && (
-              <span className="perfil-badge">
-                <i className="bi bi-shield-check"></i> {rol}
+              <span className="perfil-badge admin-badge">
+                <i className="bi bi-shield-check"></i> {rol} - Administrador
               </span>
             )}
           </div>
         </div>
 
+        {/* Gestión de Productos */}
+        <div className="admin-section">
+          <ProductManager
+            onCrearProducto={onCrearProducto}
+            onEliminarProducto={onEliminarProducto}
+          />
+        </div>
+
         <div className="perfil-info-grid">
           <PerfilInfoCard
-            titulo="Información Personal"
+            titulo="Información del Administrador"
             icono="person-fill"
             datos={[
               { label: "Nombre Completo ", valor: " " + nombre || " No especificado" },
@@ -73,41 +80,24 @@ const MainAdminDashboard = ({ perfilData, onLogout, onEditar, error }) => {
           />
 
           <PerfilInfoCard
-            titulo="Dirección de Contacto"
-            icono="geo-alt-fill"
+            titulo="Privilegios de Administrador"
+            icono="shield-lock-fill"
             datos={[
-              { label: "Dirección ", valor: direccion || " No especificada" },
-              { label: "Comuna ", valor: comuna?.nombre || " No especificada" },
-              { label: "Región ", valor: region?.nombre || " No especificada" }
+              { label: "Gestión de Productos ", valor: " Crear, editar y eliminar" },
+              { label: "Gestión de Usuarios ", valor: " Ver y administrar" },
+              { label: "Acceso al Dashboard ", valor: " Estadísticas completas" }
             ]}
           />
 
           <PerfilInfoCard
-            titulo="Información de la Cuenta"
-            icono="shield-lock-fill"
+            titulo="Estadísticas Rápidas"
+            icono="graph-up-fill"
             datos={[
-              { label: "Estado de Cuenta ", valor: " Activa" },
-              { label: "Fecha de creación ", valor: " " + new Date().toLocaleDateString('es-CL') }
+              { label: "Productos Activos ", valor: " Cargando..." },
+              { label: "Usuarios Registrados ", valor: " Cargando..." },
+              { label: "Pedidos Hoy ", valor: " Cargando..." }
             ]}
           />
-        </div>
-
-        <div className="perfil-acciones-rapidas">
-          <Text as="h3" className="perfil-seccion-titulo">Acciones Rápidas</Text>
-          <div className="perfil-botones-acciones">
-            <Button className="boton-accion">
-              <i className="bi bi-box-seam"></i>
-              <span>Historial de pedidos</span>
-            </Button>
-            <Button className="boton-accion">
-              <i className="bi bi-credit-card"></i>
-              <span>Métodos de Pago</span>
-            </Button>
-            <Button className="boton-accion">
-              <i className="bi bi-lock"></i>
-              <span>Cambiar Contraseña</span>
-            </Button>
-          </div>
         </div>
       </div>
     </main>

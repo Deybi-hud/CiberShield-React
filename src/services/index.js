@@ -402,6 +402,16 @@ const AdminProductoService = {
     }
   },
 
+  async getAllProductosAdmin() {
+    try {
+      const response = await api.get('/productos');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching productos for admin:', error);
+      throw error;
+    }
+  },
+
   async actualizarParcial(id, datos) {
     try {
       const response = await api.patch(`/admin/productos/${id}`, datos);

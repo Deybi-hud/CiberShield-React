@@ -1,0 +1,56 @@
+.product-manager {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.manager-title {
+  color: var(--clr-primary);
+  margin-bottom: 1rem;
+}
+
+.manager-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.delete-confirmation {
+  text-align: center;
+}
+
+.warning-text {
+  color: var(--clr-red);
+  font-weight: 600;
+}
+
+.delete-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.boton-crear {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.boton-eliminar {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.boton-confirmar {
+  background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.boton-cancelar {
+  background: #6c757d;
+}
+
+.boton-eliminar-confirmar {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+}
